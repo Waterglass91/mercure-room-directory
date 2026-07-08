@@ -67,17 +67,7 @@
       "label_fr": "Infos utiles",
       "label_en": "Useful info"
     }
-  ],
-  "quickActions": [
-    {
-      "id": "wifi",
-      "icon": "📶",
-      "title_fr": "Wi‑Fi",
-      "title_en": "Wi‑Fi",
-      "text_fr": "Connexion rapide et mot de passe de l'hôtel.",
-      "text_en": "Fast connection and hotel password."
-    },
-    {
+
       "id": "breakfast",
       "icon": "☕",
       "title_fr": "Petit-déjeuner",
