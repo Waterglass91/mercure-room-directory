@@ -67,30 +67,6 @@
       "label_fr": "Infos utiles",
       "label_en": "Useful info"
     }
-
-      "id": "breakfast",
-      "icon": "☕",
-      "title_fr": "Petit-déjeuner",
-      "title_en": "Breakfast",
-      "text_fr": "Horaires, lieu et informations pratiques.",
-      "text_en": "Opening hours, location and practical information."
-    },
-    {
-      "id": "parking",
-      "icon": "🅿️",
-      "title_fr": "Parking",
-      "title_en": "Parking",
-      "text_fr": "Accès, conditions et stationnement.",
-      "text_en": "Access, conditions and guest parking."
-    },
-    {
-      "id": "transport",
-      "icon": "🚕",
-      "title_fr": "Transports",
-      "title_en": "Transport",
-      "text_fr": "Paris, gares, aéroports, taxi et VTC.",
-      "text_en": "Paris, stations, airports, taxi and ride-hailing."
-    }
   ],
   "localItems": [
     {
@@ -120,13 +96,13 @@
       "actions": [
         "phone"
       ],
-      "title_fr": "Wi‑Fi",
-      "title_en": "Wi‑Fi",
+      "title_fr": "Wi-Fi",
+      "title_en": "Wi-Fi",
       "summary_fr": "Connexion internet gratuite et rapide dans tout l'hôtel.",
       "summary_en": "Free and fast internet connection throughout the hotel.",
       "tags": "wifi internet réseau password code connexion",
-      "body_fr": "Le Wi‑Fi est disponible gratuitement dans tout l'hôtel.\n\n### Nom du réseau\nÀ compléter\n\n### Mot de passe\nÀ compléter\n\nSi vous rencontrez la moindre difficulté, la réception est à votre disposition.",
-      "body_en": "Wi‑Fi is available free of charge throughout the hotel.\n\n### Network name\nTo complete\n\n### Password\nTo complete\n\nIf you experience any difficulty, reception will be happy to assist you."
+      "body_fr": "Le Wi-Fi est disponible gratuitement dans tout l'hôtel.\n\n### Nom du réseau\nÀ compléter\n\n### Mot de passe\nÀ compléter\n\nSi vous rencontrez la moindre difficulté, la réception est à votre disposition.",
+      "body_en": "Wi-Fi is available free of charge throughout the hotel.\n\n### Network name\nTo complete\n\n### Password\nTo complete\n\nIf you experience any difficulty, reception will be happy to assist you."
     },
     {
       "id": "breakfast",
