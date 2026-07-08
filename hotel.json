@@ -158,18 +158,18 @@
       "body_en": "Our team can guide you according to your destination and the most suitable means of transport.\n\nReception can help you book a taxi or a ride-hailing service."
     },
     {
-      "id": "parc-de-sceaux",
-      "category": "local",
-      "icon": "🌿",
-      "actions": ["maps"],
-      "title_fr": "Parc de Sceaux",
-      "title_en": "Parc de Sceaux",
-      "summary_fr": "L'inspiration nature à proximité de l'hôtel.",
-      "summary_en": "Nature inspiration near the hotel.",
-      "tags": "parc de sceaux nature jardin promenade château local",
-      "body_fr": "Le Parc de Sceaux est l'une des grandes inspirations locales de cette direction artistique : nature, promenades, jardins structurés et respiration aux portes de Paris.\n\n### À intégrer dans votre directory\n- Temps de trajet depuis l'hôtel\n- Meilleur moment pour s'y promener\n- Conseil de l'équipe pour une balade courte\n- Option taxi / transport\n\n> L'objectif : ne pas faire une fiche touristique froide, mais une recommandation vivante, signée par l'équipe.",
-      "body_en": "Parc de Sceaux is one of the local inspirations behind this visual direction: nature, walks, structured gardens and a breath of fresh air near Paris.\n\n### To include in your directory\n- Travel time from the hotel\n- Best time for a walk\n- Team tip for a short stroll\n- Taxi / transport option\n\n> The goal: avoid a cold tourist sheet and create a living recommendation from the team."
-    },
+  "id": "restaurants à proximité",
+  "category": "local",
+  "icon": "🍽️",
+  "actions": ["maps"],
+  "title_fr": "Restaurants",
+  "title_en": "Restaurants",
+  "summary_fr": "Notre sélection de restaurants à proximité de l'hôtel.",
+  "summary_en": "Our selection of restaurants near the hotel.",
+  "tags": "restaurant restaurants proximité table sur court les loges strada brasserie bistronomique italien français local plessis robinson",
+  "body_fr": "Voici quelques adresses recommandées à proximité de l'hôtel pour déjeuner, dîner ou partager un moment convivial.\n\n### Table sur Court\nRestaurant bistronomique situé au-dessus du court de tennis du Plessis-Robinson. Une cuisine naturelle, chaleureuse et inventive, avec une attention particulière portée aux produits frais, locaux et de saison.\n\n- Adresse : 6 Avenue Descartes, 92350 Le Plessis-Robinson\n- Horaires : du lundi au vendredi, déjeuner et dîner\n- Téléphone : 01 40 94 02 11\n\n### Les Loges\nBrasserie française située sur la Place Jane Rhodes, au cœur du Plessis-Robinson. Une adresse conviviale pour un repas, un verre ou un moment de détente en terrasse selon la saison.\n\n- Adresse : 2 Place Jane Rhodes, 92350 Le Plessis-Robinson\n- Horaires : ouvert du mardi au dimanche\n- Téléphone : 01 43 50 00 17\n\n### Strada\nRestaurant franco-italien situé sur l'avenue principale du Plessis-Robinson. La Strada associe la passion de la cuisine française à l'authenticité italienne : pizzas à pâte fine, produits frais, vins français et italiens, ainsi qu'une sélection de plats du jour imaginés par le chef.\n\n- Adresse : 64-66 Avenue Charles de Gaulle, 92350 Le Plessis-Robinson\n- Horaires : ouvert du lundi au samedi\n- Téléphone : 01 46 32 97 17\n\nPour toute réservation ou recommandation complémentaire, n'hésitez pas à contacter la réception.",
+  "body_en": "Here are a few recommended restaurants near the hotel for lunch, dinner or a pleasant moment out.\n\n### Table sur Court\nA bistronomic restaurant located above the tennis court in Le Plessis-Robinson. The cuisine is natural, warm and creative, with a strong focus on fresh, local and seasonal products.\n\n- Address: 6 Avenue Descartes, 92350 Le Plessis-Robinson\n- Opening days: Monday to Friday, lunch and dinner\n- Phone: +33 1 40 94 02 11\n\n### Les Loges\nA French brasserie located on Place Jane Rhodes, in the heart of Le Plessis-Robinson. A friendly address for a meal, a drink or a relaxed moment on the terrace depending on the season.\n\n- Address: 2 Place Jane Rhodes, 92350 Le Plessis-Robinson\n- Opening days: Tuesday to Sunday\n- Phone: +33 1 43 50 00 17\n\n### Strada\nA French-Italian restaurant located on the main avenue of Le Plessis-Robinson. Strada combines the passion of French cuisine with Italian authenticity: thin-crust pizzas, fresh ingredients, French and Italian wines, and a daily selection of dishes created by the chef.\n\n- Address: 64-66 Avenue Charles de Gaulle, 92350 Le Plessis-Robinson\n- Opening days: Monday to Saturday\n- Phone: +33 1 46 32 97 17\n\nFor reservations or further recommendations, please contact reception."
+},
     {
       "id": "discover-local",
       "category": "local",
