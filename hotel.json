@@ -4,7 +4,7 @@
     "city": "Le Plessis-Robinson",
     "fullName": "Mercure Le Plessis-Robinson",
     "phone": "+33140838838",
-    "email": "hc5m7@maccor.com",
+    "email": "hc5m7@accor.com",
     "mapsUrl": "https://maps.google.com/?q=Le+Plessis-Robinson",
     "checkout": "12h00",
     "heroImage": "hotel-hero.png"
@@ -14,8 +14,6 @@
     "kicker_en": "Mercure Le Plessis-Robinson",
     "title_fr": "Une parenthèse nature aux portes de Paris.",
     "title_en": "A nature-inspired pause at the gates of Paris.",
-    "text_fr": "Services de l'hôtel, informations pratiques et recommandations locales, dans une interface inspirée par le vert sauge, le bois et les jardins du sud parisien.",
-    "text_en": "Hotel services, practical information and local recommendations in an interface inspired by sage green, wood and the gardens of southern Paris.",
     "photoTitle_fr": "Mercure Le Plessis-Robinson",
     "photoTitle_en": "Mercure Le Plessis-Robinson"
   },
