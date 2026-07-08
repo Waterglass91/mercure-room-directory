@@ -17,20 +17,25 @@
     "photoTitle_fr": "Mercure Le Plessis-Robinson",
     "photoTitle_en": "Mercure Le Plessis-Robinson"
   },
-  "texts": {
-    "servicesTitle_fr": "Informations & services",
-    "servicesTitle_en": "Information & services",
-    "localTitle_fr": "Le Plessis côté nature",
-    "localTitle_en": "Le Plessis, nature side",
-    "localHighlightTitle_fr": "Des jardins de Sceaux à l'hôtel.",
-    "localHighlightTitle_en": "From the gardens of Sceaux to the hotel.",
-    "localHighlightText_fr": "Une identité apaisée, végétale et élégante, qui donne au room directory une vraie personnalité locale.",
-    "localHighlightText_en": "A calm, botanical and elegant identity that gives the room directory a real local personality.",
-    "contactTitle_fr": "Notre équipe est à votre disposition",
-    "contactTitle_en": "Our team is at your service",
-    "footerNote_fr": "Room Directory Mercure Le Plessis-Robinson.",
-    "footerNote_en": "Mercure Le Plessis-Robinson Room Directory."
-  },
+"texts": {
+  "servicesTitle_fr": "Informations & services",
+  "servicesTitle_en": "Information & services",
+
+  "localTitle_fr": "L’esprit Robinson",
+  "localTitle_en": "The Robinson spirit",
+
+  "localHighlightTitle_fr": "Guinguettes, jardins et douceur de quartier.",
+  "localHighlightTitle_en": "Guinguettes, gardens and neighbourhood charm.",
+
+  "localHighlightText_fr": "À quelques minutes de l’hôtel, découvrez une ville calme et élégante, marquée par l’histoire des guinguettes, les promenades arborées et une vraie douceur de quartier.",
+  "localHighlightText_en": "Just a few minutes from the hotel, discover a calm and elegant town shaped by guinguette history, leafy walks and a genuine neighbourhood atmosphere.",
+
+  "contactTitle_fr": "Notre équipe est à votre disposition",
+  "contactTitle_en": "Our team is at your service",
+
+  "footerNote_fr": "Room Directory Mercure Le Plessis-Robinson.",
+  "footerNote_en": "Mercure Le Plessis-Robinson Room Directory."
+},
   "categories": [
     {
       "id": "essentials",
