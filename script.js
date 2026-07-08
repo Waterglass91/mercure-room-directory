@@ -244,12 +244,25 @@ function renderLocalItems() {
   const container = $("#localList");
   if (!container) return;
 
-  container.innerHTML = (state.data.localItems || []).map(item => `
-    <div class="local-item">
-      <strong>${escapeHtml(txt(item, "title"))}</strong>
-      <span>${escapeHtml(txt(item, "text"))}</span>
-    </div>
-  `).join("");
+  container.innerHTML = (state.data.localItems || []).map(item => {
+    const image = item.image || "";
+    const title = txt(item, "title");
+    const text = txt(item, "text");
+    const link = item.link || "#local";
+
+    return `
+      <a class="local-image-card" href="${escapeHtml(link)}">
+        <div class="local-card-image">
+          ${image ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(title)}">` : ""}
+        </div>
+
+        <div class="local-card-content">
+          <strong>${escapeHtml(title)}</strong>
+          <span>${escapeHtml(text)}</span>
+        </div>
+      </a>
+    `;
+  }).join("");
 }
 
 function actionButton(type) {
