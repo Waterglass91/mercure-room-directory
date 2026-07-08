@@ -253,7 +253,6 @@ function route() {
 function renderAll() {
   applyBasics();
   renderHeroQuickLinks();
-  renderQuickActions();
   renderTabs();
   renderServices();
   renderLocalItems();
