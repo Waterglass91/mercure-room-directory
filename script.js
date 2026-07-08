@@ -339,3 +339,90 @@ Fix hotel content path
 
   img.src = image + "?v=" + Date.now();
 })();
+// Pop-up services : ouverture des rubriques sans changer de page
+function ensureServiceModal() {
+  let modal = document.querySelector("#serviceModal");
+
+  if (modal) return modal;
+
+  document.body.insertAdjacentHTML("beforeend", `
+    <div class="service-modal" id="serviceModal" aria-hidden="true">
+      <div class="service-modal-backdrop" data-modal-close></div>
+
+      <article class="service-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+        <button class="service-modal-close" type="button" data-modal-close aria-label="Fermer">×</button>
+
+        <div class="service-modal-head">
+          <div class="service-modal-icon" id="serviceModalIcon"></div>
+          <h2 class="service-modal-title" id="serviceModalTitle"></h2>
+        </div>
+
+        <p class="service-modal-summary" id="serviceModalSummary"></p>
+
+        <div class="service-modal-content" id="serviceModalContent"></div>
+
+        <div class="service-modal-actions" id="serviceModalActions"></div>
+      </article>
+    </div>
+  `);
+
+  modal = document.querySelector("#serviceModal");
+
+  modal.querySelectorAll("[data-modal-close]").forEach((button) => {
+    button.addEventListener("click", closeServiceModal);
+  });
+
+  return modal;
+}
+
+function openServiceModal(id) {
+  if (!state.data || !state.data.sections) return;
+
+  const section = state.data.sections.find((item) => item.id === id);
+  if (!section) return;
+
+  const modal = ensureServiceModal();
+
+  modal.querySelector("#serviceModalIcon").textContent = section.icon || "";
+  modal.querySelector("#serviceModalTitle").textContent = txt(section, "title");
+  modal.querySelector("#serviceModalSummary").textContent = txt(section, "summary");
+  modal.querySelector("#serviceModalContent").innerHTML = markdownToHtml(txt(section, "body"));
+  modal.querySelector("#serviceModalActions").innerHTML = (section.actions || []).map(actionButton).join("");
+
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+
+  const closeButton = modal.querySelector(".service-modal-close");
+  if (closeButton) closeButton.focus({ preventScroll: true });
+}
+
+function closeServiceModal() {
+  const modal = document.querySelector("#serviceModal");
+  if (!modal) return;
+
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+document.addEventListener("click", function (event) {
+  const link = event.target.closest('a[href^="#service/"]');
+
+  if (!link) return;
+
+  const id = link.getAttribute("href").replace("#service/", "");
+
+  if (!id) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+
+  openServiceModal(decodeURIComponent(id));
+}, true);
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeServiceModal();
+  }
+});
