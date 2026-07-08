@@ -1,0 +1,287 @@
+{
+  "hotel": {
+    "brand": "Mercure",
+    "city": "Le Plessis-Robinson",
+    "fullName": "Mercure Le Plessis-Robinson",
+    "phone": "+33100000000",
+    "email": "contact@mercure-plessis-robinson.fr",
+    "mapsUrl": "https://maps.google.com/?q=Le+Plessis-Robinson",
+    "checkout": "12h00",
+    "heroImage": "assets/uploads/hotel-hero.jpg"
+  },
+  "hero": {
+    "kicker_fr": "Mercure Le Plessis-Robinson",
+    "kicker_en": "Mercure Le Plessis-Robinson",
+    "title_fr": "Une parenthèse nature aux portes de Paris.",
+    "title_en": "A nature-inspired pause at the gates of Paris.",
+    "text_fr": "Services de l'hôtel, informations pratiques et recommandations locales, dans une interface inspirée par le vert sauge, le bois et les jardins du sud parisien.",
+    "text_en": "Hotel services, practical information and local recommendations in an interface inspired by sage green, wood and the gardens of southern Paris.",
+    "photoTitle_fr": "Mercure Le Plessis-Robinson",
+    "photoTitle_en": "Mercure Le Plessis-Robinson",
+    "photoText_fr": "Une vraie photo de l'hôtel donnera immédiatement plus de crédibilité et de chaleur au directory.",
+    "photoText_en": "A real hotel image will instantly make the directory feel more credible and welcoming."
+  },
+  "texts": {
+    "servicesTitle_fr": "Informations & services",
+    "servicesTitle_en": "Information & services",
+    "servicesIntro_fr": "Une navigation claire, chaleureuse et premium, pensée pour le client hôtelier sur mobile.",
+    "servicesIntro_en": "Clear, warm and premium navigation designed for hotel guests on mobile.",
+    "localTitle_fr": "Le Plessis côté nature",
+    "localTitle_en": "Le Plessis, nature side",
+    "localIntro_fr": "L'idée : raconter l'environnement proche, les jardins, les promenades, les bonnes adresses et le lien naturel avec le Parc de Sceaux.",
+    "localIntro_en": "The idea: tell the story of the nearby environment, gardens, walks, good addresses and the natural link with Parc de Sceaux.",
+    "localHighlightTitle_fr": "Des jardins de Sceaux à l'hôtel.",
+    "localHighlightTitle_en": "From the gardens of Sceaux to the hotel.",
+    "localHighlightText_fr": "Une identité apaisée, végétale et élégante, qui donne au room directory une vraie personnalité locale.",
+    "localHighlightText_en": "A calm, botanical and elegant identity that gives the room directory a real local personality.",
+    "contactTitle_fr": "Notre équipe est à votre disposition",
+    "contactTitle_en": "Our team is at your service",
+    "contactIntro_fr": "Appeler la réception, écrire à l'hôtel ou ouvrir l'adresse sur Google Maps.",
+    "contactIntro_en": "Call reception, email the hotel or open the address on Google Maps.",
+    "footerNote_fr": "Room Directory Mercure Le Plessis-Robinson.",
+    "footerNote_en": "Mercure Le Plessis-Robinson Room Directory."
+  },
+  "categories": [
+    {
+      "id": "essentials",
+      "label_fr": "Essentiels",
+      "label_en": "Essentials"
+    },
+    {
+      "id": "food",
+      "label_fr": "Restauration",
+      "label_en": "Food & drink"
+    },
+    {
+      "id": "hotel",
+      "label_fr": "Hôtel",
+      "label_en": "Hotel"
+    },
+    {
+      "id": "local",
+      "label_fr": "Local & nature",
+      "label_en": "Local & nature"
+    },
+    {
+      "id": "security",
+      "label_fr": "Infos utiles",
+      "label_en": "Useful info"
+    }
+  ],
+  "quickActions": [
+    {
+      "id": "wifi",
+      "icon": "📶",
+      "title_fr": "Wi‑Fi",
+      "title_en": "Wi‑Fi",
+      "text_fr": "Connexion rapide et mot de passe de l'hôtel.",
+      "text_en": "Fast connection and hotel password."
+    },
+    {
+      "id": "breakfast",
+      "icon": "☕",
+      "title_fr": "Petit-déjeuner",
+      "title_en": "Breakfast",
+      "text_fr": "Horaires, lieu et informations pratiques.",
+      "text_en": "Opening hours, location and practical information."
+    },
+    {
+      "id": "parking",
+      "icon": "🅿️",
+      "title_fr": "Parking",
+      "title_en": "Parking",
+      "text_fr": "Accès, conditions et stationnement.",
+      "text_en": "Access, conditions and guest parking."
+    },
+    {
+      "id": "transport",
+      "icon": "🚕",
+      "title_fr": "Transports",
+      "title_en": "Transport",
+      "text_fr": "Paris, gares, aéroports, taxi et VTC.",
+      "text_en": "Paris, stations, airports, taxi and ride-hailing."
+    }
+  ],
+  "localItems": [
+    {
+      "title_fr": "Parc de Sceaux",
+      "title_en": "Parc de Sceaux",
+      "text_fr": "La grande référence nature à proximité : jardins, promenade, respiration et inspiration visuelle.",
+      "text_en": "The key nearby nature reference: gardens, walk, fresh air and visual inspiration."
+    },
+    {
+      "title_fr": "Balade verte",
+      "title_en": "Green walk",
+      "text_fr": "À compléter avec une promenade courte et facile depuis l'hôtel ou en transport.",
+      "text_en": "To complete with a short and easy walk from the hotel or by transport."
+    },
+    {
+      "title_fr": "Adresse de quartier",
+      "title_en": "Neighbourhood address",
+      "text_fr": "Restaurant, café ou commerce sélectionné par l'équipe pour donner une vraie touche locale.",
+      "text_en": "Restaurant, café or shop selected by the team to add a real local touch."
+    }
+  ],
+  "sections": [
+    {
+      "id": "wifi",
+      "category": "essentials",
+      "icon": "📶",
+      "actions": [
+        "phone"
+      ],
+      "title_fr": "Wi‑Fi",
+      "title_en": "Wi‑Fi",
+      "summary_fr": "Connexion internet gratuite et rapide dans tout l'hôtel.",
+      "summary_en": "Free and fast internet connection throughout the hotel.",
+      "tags": "wifi internet réseau password code connexion",
+      "body_fr": "Le Wi‑Fi est disponible gratuitement dans tout l'hôtel.\n\n### Nom du réseau\nÀ compléter\n\n### Mot de passe\nÀ compléter\n\nSi vous rencontrez la moindre difficulté, la réception est à votre disposition.",
+      "body_en": "Wi‑Fi is available free of charge throughout the hotel.\n\n### Network name\nTo complete\n\n### Password\nTo complete\n\nIf you experience any difficulty, reception will be happy to assist you."
+    },
+    {
+      "id": "breakfast",
+      "category": "food",
+      "icon": "☕",
+      "actions": [],
+      "title_fr": "Petit-déjeuner",
+      "title_en": "Breakfast",
+      "summary_fr": "Horaires, lieu et esprit de l'offre petit-déjeuner.",
+      "summary_en": "Opening hours, location and breakfast offer.",
+      "tags": "petit déjeuner breakfast buffet horaires café croissant",
+      "body_fr": "Commencez la journée avec notre petit-déjeuner buffet, dans une atmosphère calme et lumineuse.\n\n### Informations pratiques\n- Horaires : à compléter\n- Lieu : à compléter\n- Tarif : à compléter\n\nPour toute allergie ou demande particulière, merci de vous rapprocher de notre équipe.",
+      "body_en": "Start the day with our breakfast buffet in a calm and bright atmosphere.\n\n### Practical information\n- Hours: to complete\n- Location: to complete\n- Price: to complete\n\nPlease contact our team for any allergy or special request."
+    },
+    {
+      "id": "bar",
+      "category": "food",
+      "icon": "🍷",
+      "actions": [],
+      "title_fr": "Bar & boissons",
+      "title_en": "Bar & drinks",
+      "summary_fr": "Un moment chaleureux entre bois, sauge et lumière douce.",
+      "summary_en": "A warm moment with wood, sage and soft light.",
+      "tags": "bar vin cocktail bière boissons lounge",
+      "body_fr": "Notre bar vous accueille pour un verre après une journée de travail, un rendez-vous informel ou un moment de détente.\n\n### Horaires\nÀ compléter\n\nAjoutez ici une sélection signature ou une recommandation locale à l'esprit Mercure.",
+      "body_en": "Our bar welcomes you for a drink after work, an informal meeting or a relaxing break.\n\n### Opening hours\nTo complete\n\nAdd here a signature selection or a local recommendation in the Mercure spirit."
+    },
+    {
+      "id": "room-service",
+      "category": "food",
+      "icon": "🛎️",
+      "actions": [
+        "phone"
+      ],
+      "title_fr": "Room service",
+      "title_en": "Room service",
+      "summary_fr": "Commande en chambre selon les horaires de service.",
+      "summary_en": "In-room order according to service hours.",
+      "tags": "room service dîner menu chambre commande",
+      "body_fr": "Une offre de restauration peut être proposée en chambre selon les horaires de service.\n\n### Informations pratiques\n- Déjeuner : à compléter\n- Dîner : à compléter\n- Commande : contacter la réception\n\nLa carte et les allergènes sont disponibles sur demande.",
+      "body_en": "An in-room dining offer may be available depending on service hours.\n\n### Practical information\n- Lunch: to complete\n- Dinner: to complete\n- Ordering: contact reception\n\nThe menu and allergens information are available on request."
+    },
+    {
+      "id": "parking",
+      "category": "hotel",
+      "icon": "🅿️",
+      "actions": [
+        "phone"
+      ],
+      "title_fr": "Parking",
+      "title_en": "Parking",
+      "summary_fr": "Accès, modalités et informations de stationnement.",
+      "summary_en": "Access, conditions and parking information.",
+      "tags": "parking voiture stationnement borne électrique accès",
+      "body_fr": "Un parking est disponible pour les clients de l'hôtel.\n\n### Informations pratiques\n- Accès : à compléter\n- Tarif : à compléter\n- Bornes électriques : à compléter\n\nN'hésitez pas à contacter la réception pour toute précision.",
+      "body_en": "Parking is available for hotel guests.\n\n### Practical information\n- Access: to complete\n- Price: to complete\n- Electric charging: to complete\n\nPlease contact reception if you need any further information."
+    },
+    {
+      "id": "fitness",
+      "category": "hotel",
+      "icon": "🏋️",
+      "actions": [],
+      "title_fr": "Fitness",
+      "title_en": "Fitness",
+      "summary_fr": "Espace bien-être et remise en forme.",
+      "summary_en": "Wellness and fitness area.",
+      "tags": "sport fitness gym salle de sport wellbeing",
+      "body_fr": "Un espace fitness est à votre disposition pendant votre séjour.\n\n### Informations pratiques\n- Horaires : à compléter\n- Accès : à compléter\n\nMerci d'utiliser les équipements avec soin et de respecter le calme des lieux.",
+      "body_en": "A fitness area is available during your stay.\n\n### Practical information\n- Opening hours: to complete\n- Access: to complete\n\nPlease use the equipment with care and respect the quiet atmosphere."
+    },
+    {
+      "id": "transport",
+      "category": "local",
+      "icon": "🚕",
+      "actions": [
+        "maps",
+        "phone"
+      ],
+      "title_fr": "Transports",
+      "title_en": "Transport",
+      "summary_fr": "Paris, aéroports, taxi et VTC.",
+      "summary_en": "Paris, airports, taxi and ride-hailing.",
+      "tags": "transport taxi vtc paris orly cdg gare rer tram bus",
+      "body_fr": "Notre équipe peut vous orienter selon votre destination et le moyen de transport le plus adapté.\n\n### Informations pratiques\n- Paris : à compléter\n- Orly : à compléter\n- CDG : à compléter\n- Gare la plus proche : à compléter\n\nLa réception peut vous aider à réserver un taxi ou un VTC.",
+      "body_en": "Our team can guide you according to your destination and the most suitable means of transport.\n\n### Practical information\n- Paris: to complete\n- Orly: to complete\n- CDG: to complete\n- Nearest station: to complete\n\nReception can help you book a taxi or a ride-hailing service."
+    },
+    {
+      "id": "parc-de-sceaux",
+      "category": "local",
+      "icon": "🌿",
+      "actions": [
+        "maps"
+      ],
+      "title_fr": "Parc de Sceaux",
+      "title_en": "Parc de Sceaux",
+      "summary_fr": "L'inspiration nature à proximité de l'hôtel.",
+      "summary_en": "Nature inspiration near the hotel.",
+      "tags": "parc de sceaux nature jardin promenade château local",
+      "body_fr": "Le Parc de Sceaux est l'une des grandes inspirations locales de cette direction artistique : nature, promenades, jardins structurés et respiration aux portes de Paris.\n\n### À intégrer dans votre directory\n- Temps de trajet depuis l'hôtel\n- Meilleur moment pour s'y promener\n- Conseil de l'équipe pour une balade courte\n- Option taxi / transport\n\n> L'objectif : ne pas faire une fiche touristique froide, mais une recommandation vivante, signée par l'équipe.",
+      "body_en": "Parc de Sceaux is one of the local inspirations behind this visual direction: nature, walks, structured gardens and a breath of fresh air near Paris.\n\n### To include in your directory\n- Travel time from the hotel\n- Best time for a walk\n- Team tip for a short stroll\n- Taxi / transport option\n\n> The goal: avoid a cold tourist sheet and create a living recommendation from the team."
+    },
+    {
+      "id": "discover-local",
+      "category": "local",
+      "icon": "✦",
+      "actions": [
+        "maps"
+      ],
+      "title_fr": "Discover Local",
+      "title_en": "Discover Local",
+      "summary_fr": "Restaurants, balades et recommandations de l'équipe.",
+      "summary_en": "Restaurants, walks and team recommendations.",
+      "tags": "local restaurant balade parc marché adresse recommandation",
+      "body_fr": "Le Plessis-Robinson est une ville calme, verte et agréable aux portes de Paris. Cette rubrique doit devenir l'une des signatures de votre room directory.\n\n### À personnaliser\n- Le restaurant préféré de l'équipe\n- Une adresse pour boire un verre\n- Une promenade ou un parc recommandé\n- Un commerce utile ou une adresse pratique\n- Une suggestion de sortie vers Paris\n\n> L'esprit Mercure : proposer peu d'adresses, mais des recommandations sincères, locales et élégamment présentées.",
+      "body_en": "Le Plessis-Robinson is a calm, green and pleasant town on the edge of Paris. This section should become one of the signatures of your room directory.\n\n### To personalise\n- The team’s favourite restaurant\n- A place for a drink\n- A recommended walk or park\n- A useful shop or practical address\n- A suggestion for an outing to Paris\n\n> Mercure spirit: propose only a few addresses, but make them sincere, local and elegantly presented."
+    },
+    {
+      "id": "services",
+      "category": "hotel",
+      "icon": "🧺",
+      "actions": [
+        "phone"
+      ],
+      "title_fr": "Services de l'hôtel",
+      "title_en": "Hotel services",
+      "summary_fr": "Bagagerie, lit bébé, fer à repasser, blanchisserie et plus.",
+      "summary_en": "Luggage room, baby cot, iron, laundry and more.",
+      "tags": "bagagerie blanchisserie lit bébé fer repassage réveil adaptateur",
+      "body_fr": "Notre équipe reste à votre disposition pour les demandes du quotidien.\n\n### Services disponibles\n- Bagagerie\n- Lit bébé sur demande\n- Fer et table à repasser\n- Service de blanchisserie\n- Adaptateur ou chargeur selon disponibilité\n- Réveil téléphonique\n\nMerci de contacter la réception pour toute demande complémentaire.",
+      "body_en": "Our team remains available for day-to-day requests.\n\n### Available services\n- Luggage storage\n- Baby cot on request\n- Iron and ironing board\n- Laundry service\n- Adapter or charger subject to availability\n- Wake-up call\n\nPlease contact reception for any further request."
+    },
+    {
+      "id": "rules",
+      "category": "security",
+      "icon": "ℹ️",
+      "actions": [
+        "phone"
+      ],
+      "title_fr": "Informations utiles",
+      "title_en": "Useful information",
+      "summary_fr": "Hôtel non-fumeur, sécurité, objets de valeur et animaux.",
+      "summary_en": "Non-smoking hotel, safety, valuables and pets.",
+      "tags": "sécurité non fumeur alarme animaux coffre règlement",
+      "body_fr": "### Hôtel non-fumeur\nL'ensemble des chambres et des espaces intérieurs est non-fumeur.\n\n### Sécurité\nEn cas d'alarme, suivez les consignes d'évacuation affichées dans votre chambre.\n\n### Objets de valeur\nMerci de ne pas laisser vos effets personnels sans surveillance.\n\n### Animaux\nPolitique à compléter : acceptés / non acceptés / supplément / conditions.",
+      "body_en": "### Non-smoking hotel\nAll rooms and indoor areas are non-smoking.\n\n### Safety\nIn case of alarm, please follow the evacuation instructions displayed in your room.\n\n### Valuables\nPlease do not leave personal belongings unattended.\n\n### Pets\nPolicy to complete: allowed / not allowed / supplement / conditions."
+    }
+  ]
+}

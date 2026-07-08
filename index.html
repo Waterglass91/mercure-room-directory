@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#82917b">
+  <meta name="description" content="Room Directory digital — Mercure Le Plessis-Robinson">
+  <title>Room Directory — Mercure Le Plessis-Robinson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar" aria-label="En-tête">
+      <a href="#home" class="brand accor-brand" data-link="home" aria-label="Accueil">
+        <span class="brand-logo" aria-label="Mercure Hotels">
+          <span>MERCURE</span>
+          <small>HOTELS</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigation principale">
+        <a href="#home">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#local">Guide local</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="top-actions">
+        <button class="lang-btn" type="button" id="langBtn" aria-label="Changer la langue">EN</button>
+        <a class="pill" data-action="phone" href="tel:+33100000000">☎ Réception</a>
+      </div>
+    </header>
+
+    <main id="viewHome">
+      <section class="hero" id="home">
+        <div class="garden-lines" aria-hidden="true"></div>
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow" data-content="hero.kicker">Mercure Le Plessis-Robinson</p>
+            <h1 data-content="hero.title">Une parenthèse nature aux portes de Paris.</h1>
+            <p class="lead" data-content="hero.text">Services de l'hôtel, informations pratiques et recommandations locales.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" data-action="phone" href="tel:+33100000000" data-ui="callReception">Appeler la réception</a>
+              <a class="btn btn-secondary" href="#services" data-link="services" data-ui="seeServices">Voir les services</a>
+            </div>
+            <div class="hero-note" id="heroQuickLinks"></div>
+          </div>
+
+          <aside class="hotel-photo-card" aria-label="Photo de l'hôtel">
+            <div class="hotel-photo-frame" id="hotelPhotoFrame">
+              <img id="hotelHeroImage" src="" alt="Photo de l'hôtel Mercure Le Plessis-Robinson">
+              <div class="photo-placeholder">
+                <span>Photo hôtel</span>
+                <strong>assets/uploads/hotel-hero.jpg</strong>
+                <small>À ajouter dans GitHub.</small>
+              </div>
+            </div>
+            <div class="hotel-photo-caption">
+              <strong data-content="hero.photoTitle">Mercure Le Plessis-Robinson</strong>
+              <span data-content="hero.photoText">Une vraie photo de l'hôtel donnera plus de crédibilité.</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="quick-grid" aria-label="Accès rapides" id="quickActions"></section>
+
+      <section class="panel" id="services">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Room Directory</p>
+            <h2 data-content="texts.servicesTitle">Informations & services</h2>
+          </div>
+          <p data-content="texts.servicesIntro">Une navigation claire, chaleureuse et premium.</p>
+        </div>
+
+        <div class="search-wrap">
+          <label class="search-box" aria-label="Recherche">
+            <span>⌕</span>
+            <input id="search" type="search" placeholder="Petit-déjeuner, parking, Wi‑Fi...">
+          </label>
+          <div class="tabs" id="tabs"></div>
+        </div>
+
+        <div class="service-grid" id="serviceGrid"></div>
+      </section>
+
+      <section class="panel" id="local">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Discover Local</p>
+            <h2 data-content="texts.localTitle">Le Plessis côté nature</h2>
+          </div>
+          <p data-content="texts.localIntro">Raconter l'environnement proche.</p>
+        </div>
+        <div class="local-layout">
+          <article class="local-highlight">
+            <p class="eyebrow">Inspiration locale</p>
+            <h3 data-content="texts.localHighlightTitle">Des jardins de Sceaux à l'hôtel.</h3>
+            <p data-content="texts.localHighlightText">Une identité apaisée, végétale et élégante.</p>
+            <div class="actions">
+              <a class="btn btn-soft" href="#service/parc-de-sceaux" data-ui="discoverMore">Découvrir</a>
+            </div>
+          </article>
+          <div class="local-list" id="localList"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="contact">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" data-ui="needHelp">Besoin d'aide ?</p>
+            <h2 data-content="texts.contactTitle">Notre équipe est à votre disposition</h2>
+          </div>
+          <p data-content="texts.contactIntro">Appeler la réception, écrire à l'hôtel ou ouvrir l'adresse sur Google Maps.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" data-action="phone" href="tel:+33100000000" data-ui="callReception">Appeler la réception</a>
+          <a class="btn btn-light" data-action="email" href="mailto:contact@example.com" data-ui="writeHotel">Écrire à l'hôtel</a>
+          <a class="btn btn-soft" data-action="maps" href="#" target="_blank" rel="noopener" data-ui="openMap">Ouvrir la carte</a>
+        </div>
+      </section>
+    </main>
+
+    <section id="viewDetail" class="detail-view"></section>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> <span id="footerHotelName">Mercure Le Plessis-Robinson</span></div>
+      <div data-content="texts.footerNote">Room Directory Mercure Le Plessis-Robinson.</div>
+    </footer>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Navigation mobile">
+    <a href="#home" data-link="home" class="active"><span>⌂</span><em>Accueil</em></a>
+    <a href="#services" data-link="services"><span>☰</span><em>Services</em></a>
+    <a href="#local" data-link="local"><span>✦</span><em>Local</em></a>
+    <a href="#contact" data-link="contact"><span>✆</span><em>Contact</em></a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
