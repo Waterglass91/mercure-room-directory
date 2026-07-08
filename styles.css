@@ -1440,3 +1440,91 @@ body {
     grid-template-columns: 96px minmax(0, 1fr);
   }
 }
+/* ============================= */
+/* POLICE UNIQUE - CORMORANT */
+/* ============================= */
+
+:root {
+  --font-logo: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+}
+
+html,
+body,
+button,
+input,
+textarea,
+select,
+a,
+p,
+span,
+strong,
+small,
+em,
+label,
+div,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif !important;
+}
+
+/* Ajustement général pour que la police reste lisible */
+body {
+  font-weight: 500;
+}
+
+p,
+.service-card p,
+.local-card-content span,
+.service-modal-summary,
+.service-modal-content,
+.content-block,
+.footer {
+  font-size: 1.08rem;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+/* Titres élégants et cohérents */
+h1,
+h2,
+h3,
+.section-head h2,
+.service-modal-title,
+.local-feature-content h3,
+.local-card-content strong,
+.service-card h3,
+.detail-content h2 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+/* Menu plus premium avec la même police */
+.desktop-nav a {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif !important;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Logo Mercure harmonisé */
+.brand-logo span,
+.brand-logo small {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif !important;
+}
+
+/* Boutons harmonisés */
+.btn,
+.pill,
+.lang-btn,
+.mini-link,
+.tab,
+.service-card .open {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif !important;
+  font-weight: 700;
+}
