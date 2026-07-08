@@ -139,13 +139,7 @@ function renderHeroQuickLinks() {
 }
 
 function renderQuickActions() {
-  $("#quickActions").innerHTML = (state.data.quickActions || []).map(item => `
-    <a class="quick-card" href="#service/${escapeHtml(item.id)}">
-      <span class="emoji">${escapeHtml(item.icon)}</span>
-      <strong>${escapeHtml(txt(item, "title"))}</strong>
-      <small>${escapeHtml(txt(item, "text"))}</small>
-    </a>
-  `).join("");
+  return;
 }
 
 function renderTabs() {
