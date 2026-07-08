@@ -168,8 +168,9 @@ function matches(section) {
 
 function renderServices() {
   const items = (state.data.sections || []).filter(matches);
+
   $("#serviceGrid").innerHTML = items.length ? items.map(section => `
-    <a class="service-card" href="#service/${escapeHtml(section.id)}">
+    <a class="service-card" href="#" data-service-id="${escapeHtml(section.id)}" aria-haspopup="dialog">
       <div>
         <div class="icon">${escapeHtml(section.icon)}</div>
         <h3>${escapeHtml(txt(section, "title"))}</h3>
@@ -339,7 +340,155 @@ loadContent().then(() => {
   img.src = image + "?v=" + Date.now();
 })();
 // Pop-up services : ouverture des rubriques sans changer de page
+function ensureServiceModalStyles() {
+  if (document.querySelector("#serviceModalStyles")) return;
+
+  const style = document.createElement("style");
+  style.id = "serviceModalStyles";
+  style.textContent = `
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    .service-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .service-modal.is-open {
+      display: flex;
+    }
+
+    .service-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+    }
+
+    .service-modal-dialog {
+      position: relative;
+      width: min(720px, 100%);
+      max-height: 86vh;
+      overflow: auto;
+      background: #fff;
+      border-radius: 26px;
+      padding: 28px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      animation: serviceModalIn 0.18s ease-out;
+    }
+
+    .service-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 999px;
+      background: #f2f2f2;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .service-modal-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+      padding-right: 38px;
+    }
+
+    .service-modal-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: #eef5f1;
+      font-size: 28px;
+      flex: 0 0 auto;
+    }
+
+    .service-modal-title {
+      margin: 0;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.12;
+    }
+
+    .service-modal-summary {
+      margin: 8px 0 18px;
+      color: #52625a;
+      font-size: 1.02rem;
+      line-height: 1.55;
+    }
+
+    .service-modal-content {
+      line-height: 1.62;
+    }
+
+    .service-modal-content h3 {
+      margin: 22px 0 8px;
+      font-size: 1.12rem;
+    }
+
+    .service-modal-content p {
+      margin: 0 0 12px;
+    }
+
+    .service-modal-content ul {
+      margin: 8px 0 16px;
+      padding-left: 22px;
+    }
+
+    .service-modal-content li {
+      margin: 7px 0;
+    }
+
+    .service-modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    @keyframes serviceModalIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .service-modal {
+        align-items: flex-end;
+        padding: 0;
+      }
+
+      .service-modal-dialog {
+        width: 100%;
+        max-height: 88vh;
+        border-radius: 24px 24px 0 0;
+        padding: 24px 20px 26px;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 function ensureServiceModal() {
+  ensureServiceModalStyles();
+
   let modal = document.querySelector("#serviceModal");
 
   if (modal) return modal;
@@ -406,18 +555,14 @@ function closeServiceModal() {
 }
 
 document.addEventListener("click", function (event) {
-  const link = event.target.closest('a[href^="#service/"]');
+  const trigger = event.target.closest("[data-service-id]");
 
-  if (!link) return;
-
-  const id = link.getAttribute("href").replace("#service/", "");
-
-  if (!id) return;
+  if (!trigger) return;
 
   event.preventDefault();
   event.stopPropagation();
 
-  openServiceModal(decodeURIComponent(id));
+  openServiceModal(trigger.dataset.serviceId);
 }, true);
 
 document.addEventListener("keydown", function (event) {
