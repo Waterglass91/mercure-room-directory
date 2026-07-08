@@ -171,19 +171,6 @@
   "body_en": "Here are a few recommended restaurants near the hotel for lunch, dinner or a pleasant moment out.\n\n### Table sur Court\nA bistronomic restaurant located above the tennis court in Le Plessis-Robinson. The cuisine is natural, warm and creative, with a strong focus on fresh, local and seasonal products.\n\n- Address: 6 Avenue Descartes, 92350 Le Plessis-Robinson\n- Opening days: Monday to Friday, lunch and dinner\n- Phone: +33 1 40 94 02 11\n\n### Les Loges\nA French brasserie located on Place Jane Rhodes, in the heart of Le Plessis-Robinson. A friendly address for a meal, a drink or a relaxed moment on the terrace depending on the season.\n\n- Address: 2 Place Jane Rhodes, 92350 Le Plessis-Robinson\n- Opening days: Tuesday to Sunday\n- Phone: +33 1 43 50 00 17\n\n### Strada\nA French-Italian restaurant located on the main avenue of Le Plessis-Robinson. Strada combines the passion of French cuisine with Italian authenticity: thin-crust pizzas, fresh ingredients, French and Italian wines, and a daily selection of dishes created by the chef.\n\n- Address: 64-66 Avenue Charles de Gaulle, 92350 Le Plessis-Robinson\n- Opening days: Monday to Saturday\n- Phone: +33 1 46 32 97 17\n\nFor reservations or further recommendations, please contact reception."
 },
     {
-      "id": "discover-local",
-      "category": "local",
-      "icon": "✦",
-      "actions": ["maps"],
-      "title_fr": "Discover Local",
-      "title_en": "Discover Local",
-      "summary_fr": "Restaurants, balades et recommandations de l'équipe.",
-      "summary_en": "Restaurants, walks and team recommendations.",
-      "tags": "local restaurant balade parc marché adresse recommandation",
-      "body_fr": "Le Plessis-Robinson est une ville calme, verte et agréable aux portes de Paris. Cette rubrique doit devenir l'une des signatures de votre room directory.\n\n### À personnaliser\n- Le restaurant préféré de l'équipe\n- Une adresse pour boire un verre\n- Une promenade ou un parc recommandé\n- Un commerce utile ou une adresse pratique\n- Une suggestion de sortie vers Paris\n\n> L'esprit Mercure : proposer peu d'adresses, mais des recommandations sincères, locales et élégamment présentées.",
-      "body_en": "Le Plessis-Robinson is a calm, green and pleasant town on the edge of Paris. This section should become one of the signatures of your room directory.\n\n### To personalise\n- The team’s favourite restaurant\n- A place for a drink\n- A recommended walk or park\n- A useful shop or practical address\n- A suggestion for an outing to Paris\n\n> Mercure spirit: propose only a few addresses, but make them sincere, local and elegantly presented."
-    },
-    {
       "id": "services",
       "category": "hotel",
       "icon": "🧺",
@@ -206,8 +193,8 @@
       "summary_fr": "Hôtel non-fumeur, sécurité, objets de valeur et animaux.",
       "summary_en": "Non-smoking hotel, safety, valuables and pets.",
       "tags": "sécurité non fumeur alarme animaux coffre règlement",
-      "body_fr": "### Hôtel non-fumeur\nL'ensemble des chambres et des espaces intérieurs est non-fumeur.\n\n### Sécurité\nEn cas d'alarme, suivez les consignes d'évacuation affichées dans votre chambre.\n\n### Objets de valeur\nMerci de ne pas laisser vos effets personnels sans surveillance.\n\n### Animaux\nPolitique à compléter : acceptés / non acceptés / supplément / conditions.",
-      "body_en": "### Non-smoking hotel\nAll rooms and indoor areas are non-smoking.\n\n### Safety\nIn case of alarm, please follow the evacuation instructions displayed in your room.\n\n### Valuables\nPlease do not leave personal belongings unattended.\n\n### Pets\nPolicy to complete: allowed / not allowed / supplement / conditions."
+      "body_fr": "### Hôtel non-fumeur\nL'ensemble des chambres et des espaces intérieurs est non-fumeur.\n\n### Sécurité\nEn cas d'alarme, suivez les consignes d'évacuation affichées dans votre chambre.\n\n### Objets de valeur\nMerci de ne pas laisser vos effets personnels sans surveillance.",
+      "body_en": "### Non-smoking hotel\nAll rooms and indoor areas are non-smoking.\n\n### Safety\nIn case of alarm, please follow the evacuation instructions displayed in your room.\n\n### Valuables\nPlease do not leave personal belongings unattended."
     }
   ]
 }
