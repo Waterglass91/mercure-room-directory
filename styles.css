@@ -1528,3 +1528,43 @@ h3,
   font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif !important;
   font-weight: 700;
 }
+/* ============================= */
+/* SUPPRESSION DES ICÔNES / EMOJIS */
+/* ============================= */
+
+/* Icônes des cartes services */
+.service-card .icon {
+  display: none !important;
+}
+
+/* Icône dans les pop-up */
+.service-modal-icon {
+  display: none !important;
+}
+
+/* Anciennes icônes éventuelles */
+.quick-card .emoji,
+.shortcut-icon,
+.detail-icon {
+  display: none !important;
+}
+
+/* Rééquilibrage des cartes sans icône */
+.service-card h3 {
+  margin-top: 0 !important;
+  margin-bottom: 10px;
+}
+
+.service-card {
+  justify-content: space-between;
+}
+
+/* Rééquilibrage de la pop-up sans icône */
+.service-modal-head {
+  gap: 0 !important;
+  padding-right: 54px;
+}
+
+.service-modal-title {
+  margin-top: 0;
+}
