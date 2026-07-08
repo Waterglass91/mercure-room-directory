@@ -288,3 +288,54 @@ loadContent().then(() => {
   console.error(error);
 });
 Fix hotel content path
+// Correction affichage photo hôtel
+(async function forceHotelHeroImage() {
+  const img = document.querySelector("#hotelHeroImage");
+  const frame = document.querySelector("#hotelPhotoFrame");
+
+  if (!img || !frame) return;
+
+  const style = document.createElement("style");
+  style.textContent = `
+    #hotelPhotoFrame.has-image .photo-placeholder {
+      display: none !important;
+    }
+    #hotelHeroImage {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  `;
+  document.head.appendChild(style);
+
+  let image = "hotel-hero.png";
+
+  try {
+    const response = await fetch("./hotel.json?v=" + Date.now(), {
+      cache: "no-store"
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      if (data.hotel && data.hotel.heroImage) {
+        image = data.hotel.heroImage;
+      }
+    }
+  } catch (error) {
+    console.warn("Impossible de lire hotel.json, image par défaut utilisée.");
+  }
+
+  frame.classList.remove("has-image");
+
+  img.onload = function () {
+    frame.classList.add("has-image");
+  };
+
+  img.onerror = function () {
+    frame.classList.remove("has-image");
+    console.error("Image introuvable :", image);
+  };
+
+  img.src = image + "?v=" + Date.now();
+})();
