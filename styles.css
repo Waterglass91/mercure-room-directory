@@ -738,3 +738,15 @@ h1 {
 .search-wrap {
   display: none;
 }
+/* Amélioration menu principal */
+.desktop-nav a {
+  font-size: 1.28rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+@media (max-width: 920px) {
+  .desktop-nav a {
+    font-size: 1.12rem;
+  }
+}
