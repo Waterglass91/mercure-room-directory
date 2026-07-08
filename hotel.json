@@ -17,8 +17,7 @@
     "text_fr": "Services de l'hôtel, informations pratiques et recommandations locales, dans une interface inspirée par le vert sauge, le bois et les jardins du sud parisien.",
     "text_en": "Hotel services, practical information and local recommendations in an interface inspired by sage green, wood and the gardens of southern Paris.",
     "photoTitle_fr": "Mercure Le Plessis-Robinson",
-    "photoTitle_en": "Mercure Le Plessis-Robinson",
-
+    "photoTitle_en": "Mercure Le Plessis-Robinson"
   },
   "texts": {
     "servicesTitle_fr": "Informations & services",
@@ -31,6 +30,8 @@
     "localHighlightText_en": "A calm, botanical and elegant identity that gives the room directory a real local personality.",
     "contactTitle_fr": "Notre équipe est à votre disposition",
     "contactTitle_en": "Our team is at your service",
+    "footerNote_fr": "Room Directory Mercure Le Plessis-Robinson.",
+    "footerNote_en": "Mercure Le Plessis-Robinson Room Directory."
   },
   "categories": [
     {
@@ -84,9 +85,7 @@
       "id": "wifi",
       "category": "essentials",
       "icon": "📶",
-      "actions": [
-        "phone"
-      ],
+      "actions": ["phone"],
       "title_fr": "Wi-Fi",
       "title_en": "Wi-Fi",
       "summary_fr": "Connexion internet gratuite et rapide dans tout l'hôtel.",
@@ -125,9 +124,7 @@
       "id": "room-service",
       "category": "food",
       "icon": "🛎️",
-      "actions": [
-        "phone"
-      ],
+      "actions": ["phone"],
       "title_fr": "Room service",
       "title_en": "Room service",
       "summary_fr": "Commande en chambre selon les horaires de service.",
@@ -140,9 +137,7 @@
       "id": "parking",
       "category": "hotel",
       "icon": "🅿️",
-      "actions": [
-        "phone"
-      ],
+      "actions": ["phone"],
       "title_fr": "Parking",
       "title_en": "Parking",
       "summary_fr": "Accès, modalités et informations de stationnement.",
@@ -168,10 +163,7 @@
       "id": "transport",
       "category": "local",
       "icon": "🚕",
-      "actions": [
-        "maps",
-        "phone"
-      ],
+      "actions": ["maps", "phone"],
       "title_fr": "Transports",
       "title_en": "Transport",
       "summary_fr": "Paris, aéroports, taxi et VTC.",
@@ -184,9 +176,7 @@
       "id": "parc-de-sceaux",
       "category": "local",
       "icon": "🌿",
-      "actions": [
-        "maps"
-      ],
+      "actions": ["maps"],
       "title_fr": "Parc de Sceaux",
       "title_en": "Parc de Sceaux",
       "summary_fr": "L'inspiration nature à proximité de l'hôtel.",
@@ -199,9 +189,7 @@
       "id": "discover-local",
       "category": "local",
       "icon": "✦",
-      "actions": [
-        "maps"
-      ],
+      "actions": ["maps"],
       "title_fr": "Discover Local",
       "title_en": "Discover Local",
       "summary_fr": "Restaurants, balades et recommandations de l'équipe.",
@@ -214,9 +202,7 @@
       "id": "services",
       "category": "hotel",
       "icon": "🧺",
-      "actions": [
-        "phone"
-      ],
+      "actions": ["phone"],
       "title_fr": "Services de l'hôtel",
       "title_en": "Hotel services",
       "summary_fr": "Bagagerie, lit bébé, fer à repasser, blanchisserie et plus.",
@@ -229,9 +215,7 @@
       "id": "rules",
       "category": "security",
       "icon": "ℹ️",
-      "actions": [
-        "phone"
-      ],
+      "actions": ["phone"],
       "title_fr": "Informations utiles",
       "title_en": "Useful information",
       "summary_fr": "Hôtel non-fumeur, sécurité, objets de valeur et animaux.",
