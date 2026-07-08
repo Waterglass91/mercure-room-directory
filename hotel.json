@@ -3,8 +3,8 @@
     "brand": "Mercure",
     "city": "Le Plessis-Robinson",
     "fullName": "Mercure Le Plessis-Robinson",
-    "phone": "+33100000000",
-    "email": "contact@mercure-plessis-robinson.fr",
+    "phone": "+33140838838",
+    "email": "hc5m7@maccor.com",
     "mapsUrl": "https://maps.google.com/?q=Le+Plessis-Robinson",
     "checkout": "12h00",
     "heroImage": "hotel-hero.png"
@@ -18,28 +18,19 @@
     "text_en": "Hotel services, practical information and local recommendations in an interface inspired by sage green, wood and the gardens of southern Paris.",
     "photoTitle_fr": "Mercure Le Plessis-Robinson",
     "photoTitle_en": "Mercure Le Plessis-Robinson",
-    "photoText_fr": "Une vraie photo de l'hôtel donnera immédiatement plus de crédibilité et de chaleur au directory.",
-    "photoText_en": "A real hotel image will instantly make the directory feel more credible and welcoming."
+
   },
   "texts": {
     "servicesTitle_fr": "Informations & services",
     "servicesTitle_en": "Information & services",
-    "servicesIntro_fr": "Une navigation claire, chaleureuse et premium, pensée pour le client hôtelier sur mobile.",
-    "servicesIntro_en": "Clear, warm and premium navigation designed for hotel guests on mobile.",
     "localTitle_fr": "Le Plessis côté nature",
     "localTitle_en": "Le Plessis, nature side",
-    "localIntro_fr": "L'idée : raconter l'environnement proche, les jardins, les promenades, les bonnes adresses et le lien naturel avec le Parc de Sceaux.",
-    "localIntro_en": "The idea: tell the story of the nearby environment, gardens, walks, good addresses and the natural link with Parc de Sceaux.",
     "localHighlightTitle_fr": "Des jardins de Sceaux à l'hôtel.",
     "localHighlightTitle_en": "From the gardens of Sceaux to the hotel.",
     "localHighlightText_fr": "Une identité apaisée, végétale et élégante, qui donne au room directory une vraie personnalité locale.",
     "localHighlightText_en": "A calm, botanical and elegant identity that gives the room directory a real local personality.",
     "contactTitle_fr": "Notre équipe est à votre disposition",
     "contactTitle_en": "Our team is at your service",
-    "contactIntro_fr": "Appeler la réception, écrire à l'hôtel ou ouvrir l'adresse sur Google Maps.",
-    "contactIntro_en": "Call reception, email the hotel or open the address on Google Maps.",
-    "footerNote_fr": "Room Directory Mercure Le Plessis-Robinson.",
-    "footerNote_en": "Mercure Le Plessis-Robinson Room Directory."
   },
   "categories": [
     {
