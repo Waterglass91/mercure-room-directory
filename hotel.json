@@ -141,9 +141,8 @@
       "summary_fr": "Accès, modalités et informations de stationnement.",
       "summary_en": "Access, conditions and parking information.",
       "tags": "parking voiture stationnement borne électrique accès",
-      "body_fr": "Un parking est disponible pour les clients de l'hôtel.\n\n### Informations pratiques\n- Accès : à compléter\n- Tarif : à compléter\n- Bornes électriques : à compléter\n\nN'hésitez pas à contacter la réception pour toute précision.",
-      "body_en": "Parking is available for hotel guests.\n\n### Practical information\n- Access: to complete\n- Price: to complete\n- Electric charging: to complete\n\nPlease contact reception if you need any further information."
-    },
+      "body_fr": "Un parking est disponible pour les clients de l'hôtel.\n\n### Informations pratiques\n- Accès :avenue de la libération\n- Tarif : 5€\n- Bornes électriques : disponible sur le parking devant l'hôtel\n\nN'hésitez pas à contacter la réception pour toute précision.",
+     "body_en": "Parking is available for hotel guests.\n\n### Practical information\n- Access: Avenue de la Libération\n- Price: €5\n- Electric charging stations: available in the parking area in front of the hotel\n\nPlease contact reception if you need any further information."
     {
       "id": "transport",
       "category": "local",
