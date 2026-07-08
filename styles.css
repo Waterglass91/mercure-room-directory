@@ -56,7 +56,7 @@ h1, h2, h3, p { margin-top: 0; }
   justify-content: space-between;
   align-items: center;
   gap: 18px;
-  padding: 14px 0 15px;
+  padding: 14px 22px 15px 26px;
   margin-bottom: 24px;
   border-bottom: 1px solid rgba(21,19,19,.12);
   background: rgba(255,253,247,.94);
@@ -156,6 +156,7 @@ h1, h2, h3, p { margin-top: 0; }
     linear-gradient(135deg, var(--sage-800), var(--sage-500));
   color: var(--cream);
   box-shadow: var(--shadow-lg);
+  margin-bottom: 8px;
 }
 .hero::before {
   content: "";
@@ -336,7 +337,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
-  margin: -54px 22px 42px;
+  margin: 24px 0 34px;
 }
 .quick-card, .panel, .service-card, .local-item {
   border: 1px solid rgba(255,255,255,.82);
@@ -374,7 +375,7 @@ h1 {
 }
 
 .panel {
-  margin: 22px 0;
+  margin: 0 0 22px;
   padding: clamp(20px, 4vw, 38px);
   border-radius: 36px;
   backdrop-filter: blur(10px);
