@@ -87,7 +87,6 @@
     {
       "id": "wifi",
       "category": "essentials",
-      "icon": "📶",
       "actions": ["phone"],
       "title_fr": "Wi-Fi",
       "title_en": "Wi-Fi",
@@ -100,7 +99,6 @@
     {
       "id": "breakfast",
       "category": "food",
-      "icon": "☕",
       "actions": [],
       "title_fr": "Petit-déjeuner",
       "title_en": "Breakfast",
@@ -113,7 +111,6 @@
     {
       "id": "bar",
       "category": "food",
-      "icon": "🍷",
       "actions": [],
       "title_fr": "Bar & boissons",
       "title_en": "Bar & drinks",
@@ -126,7 +123,6 @@
     {
       "id": "room-service",
       "category": "food",
-      "icon": "🛎️",
       "actions": ["phone"],
       "title_fr": "Room service",
       "title_en": "Room service",
@@ -139,7 +135,6 @@
     {
       "id": "parking",
       "category": "hotel",
-      "icon": "🅿️",
       "actions": ["phone"],
       "title_fr": "Parking",
       "title_en": "Parking",
@@ -152,7 +147,6 @@
       {
       "id": "transport",
       "category": "local",
-      "icon": "🚕",
       "actions": ["maps", "phone"],
       "title_fr": "Transports",
       "title_en": "Transport",
@@ -165,7 +159,6 @@
     {
   "id": "restaurants-proximite",
   "category": "local",
-  "icon": "🍽️",
   "actions": ["maps"],
   "title_fr": "Restaurants",
   "title_en": "Restaurants",
@@ -178,7 +171,6 @@
     {
       "id": "services",
       "category": "hotel",
-      "icon": "🧺",
       "actions": ["phone"],
       "title_fr": "Services de l'hôtel",
       "title_en": "Hotel services",
@@ -191,7 +183,6 @@
     {
       "id": "rules",
       "category": "security",
-      "icon": "ℹ️",
       "actions": ["phone"],
       "title_fr": "Informations utiles",
       "title_en": "Useful information",
