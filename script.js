@@ -231,7 +231,6 @@ function renderServices() {
   container.innerHTML = items.length ? items.map(section => `
     <a class="service-card" href="#" data-service-id="${escapeHtml(section.id)}" aria-haspopup="dialog">
       <div>
-        <div class="icon">${escapeHtml(section.icon)}</div>
         <h3>${escapeHtml(txt(section, "title"))}</h3>
         <p>${escapeHtml(txt(section, "summary"))}</p>
       </div>
