@@ -287,7 +287,6 @@ loadContent().then(() => {
   document.body.innerHTML = "<p style='padding:24px;font-family:sans-serif'>Erreur de chargement du fichier content/hotel.json. Vérifiez que le site est ouvert via GitHub Pages ou un serveur local.</p>";
   console.error(error);
 });
-Fix hotel content path
 // Correction affichage photo hôtel
 (async function forceHotelHeroImage() {
   const img = document.querySelector("#hotelHeroImage");
