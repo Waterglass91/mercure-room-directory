@@ -1568,3 +1568,24 @@ h3,
 .service-modal-title {
   margin-top: 0;
 }
+/* ============================= */
+/* TITRES CARTES SERVICES PLUS GRANDS */
+/* ============================= */
+
+.service-card h3 {
+  font-size: 1.65rem !important;
+  line-height: 1.05 !important;
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+  font-weight: 600 !important;
+}
+
+.service-card p {
+  font-size: 1.08rem !important;
+  line-height: 1.45 !important;
+}
+
+.service-card .open {
+  font-size: 1rem !important;
+  margin-top: 18px !important;
+}
