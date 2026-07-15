@@ -191,8 +191,8 @@
       "tags": "sécurité non fumeur alarme animaux coffre règlement",
       "body_fr": "### Hôtel non-fumeur\nL'ensemble des chambres et des espaces intérieurs est non-fumeur.\n\n### Sécurité\nEn cas d'alarme, suivez les consignes d'évacuation affichées dans votre chambre.\n\n### Objets de valeur\nMerci de ne pas laisser vos effets personnels sans surveillance.",
       "body_en": "### Non-smoking hotel\nAll rooms and indoor areas are non-smoking.\n\n### Safety\nIn case of alarm, please follow the evacuation instructions displayed in your room.\n\n### Valuables\nPlease do not leave personal belongings unattended."
-   }
-]
+   },
+{
 document.addEventListener("DOMContentLoaded", () => {
   const discoverLocalBtn = document.getElementById("discoverLocalBtn");
 
