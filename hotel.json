@@ -205,7 +205,4 @@ document.addEventListener("DOMContentLoaded", () => {
       localRecommendations.scrollIntoView({
         behavior: "smooth",
         block: "center"
-      });
-    }
-  });
-});
+ }
