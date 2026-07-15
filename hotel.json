@@ -194,3 +194,17 @@
     }
   ]
 }
+const discoverLocalBtn = document.getElementById("discoverLocalBtn");
+
+if (discoverLocalBtn) {
+  discoverLocalBtn.addEventListener("click", () => {
+    const localRecommendations = document.getElementById("localList");
+
+    if (localRecommendations) {
+      localRecommendations.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+  });
+}
