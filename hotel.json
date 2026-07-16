@@ -74,12 +74,16 @@
   "alt_en": "The gardens of the Domaine de Sceaux",
   "url": "https://domaine-de-sceaux.hauts-de-seine.fr/"
 },
-    {
-      "title_fr": "Balade verte",
-      "title_en": "Green walk",
-      "text_fr": "À compléter avec une promenade courte et facile depuis l'hôtel ou en transport.",
-      "text_en": "To complete with a short and easy walk from the hotel or by transport."
-    },
+{
+  "title_fr": "Vallée-aux-Loups",
+  "title_en": "Vallée-aux-Loups",
+  "text_fr": "Un écrin romantique entre arboretum, jardins et sous-bois, idéal pour une promenade paisible à proximité.",
+  "text_en": "A romantic natural retreat combining an arboretum, gardens and woodland, ideal for a peaceful walk nearby.",
+  "image": "vallee-aux-loups.jpg",
+  "alt_fr": "Jardins du Domaine départemental de la Vallée-aux-Loups",
+  "alt_en": "Gardens of the Domaine de la Vallée-aux-Loups",
+  "url": "https://vallee-aux-loups.hauts-de-seine.fr/"
+},
     {
       "title_fr": "Adresse de quartier",
       "title_en": "Neighbourhood address",
