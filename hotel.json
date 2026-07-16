@@ -64,12 +64,16 @@
     }
   ],
   "localItems": [
-    {
-      "title_fr": "Parc de Sceaux",
-      "title_en": "Parc de Sceaux",
-      "text_fr": "La grande référence nature à proximité : jardins, promenade, respiration et inspiration visuelle.",
-      "text_en": "The key nearby nature reference: gardens, walk, fresh air and visual inspiration."
-    },
+{
+  "title_fr": "Parc de Sceaux",
+  "title_en": "Parc de Sceaux",
+  "text_fr": "La grande référence nature à proximité : jardins, promenade, respiration et inspiration visuelle.",
+  "text_en": "The key nearby nature reference: gardens, walks, fresh air and visual inspiration.",
+  "image": "parc-de-sceaux.jpg",
+  "alt_fr": "Les jardins du Domaine départemental de Sceaux",
+  "alt_en": "The gardens of the Domaine de Sceaux",
+  "url": "https://domaine-de-sceaux.hauts-de-seine.fr/"
+},
     {
       "title_fr": "Balade verte",
       "title_en": "Green walk",
