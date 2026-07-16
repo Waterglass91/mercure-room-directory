@@ -1584,7 +1584,61 @@ h3,
   font-size: 1.08rem !important;
   line-height: 1.45 !important;
 }
+/* Cartes des recommandations locales */
 
+.local-list-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.local-list-thumbnail {
+  width: 120px;
+  min-width: 120px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #dfe8dc;
+}
+
+.local-list-thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.local-list-link:hover .local-list-thumbnail img {
+  transform: scale(1.05);
+}
+
+.local-list-link:hover {
+  transform: translateY(-2px);
+}
+
+.local-list-link:focus-visible {
+  outline: 2px solid #82917b;
+  outline-offset: 4px;
+}
+
+.local-list-content {
+  min-width: 0;
+}
+
+.local-list-content h3 {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .local-list-thumbnail {
+    width: 96px;
+    min-width: 96px;
+    height: 96px;
+    border-radius: 15px;
+  }
+}
 .service-card .open {
   font-size: 1rem !important;
   margin-top: 18px !important;
