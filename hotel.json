@@ -84,12 +84,16 @@
   "alt_en": "Gardens of the Domaine de la Vallée-aux-Loups",
   "url": "https://vallee-aux-loups.hauts-de-seine.fr/"
 },
-    {
-      "title_fr": "Adresse de quartier",
-      "title_en": "Neighbourhood address",
-      "text_fr": "Restaurant, café ou commerce sélectionné par l'équipe pour donner une vraie touche locale.",
-      "text_en": "Restaurant, café or shop selected by the team to add a real local touch."
-    }
+{
+  "title_fr": "Maison des Arts",
+  "title_en": "Maison des Arts",
+  "text_fr": "Un élégant lieu culturel réunissant cinéma, théâtre, médiathèque, expositions et musique au cœur du Plessis-Robinson.",
+  "text_en": "An elegant cultural venue bringing together cinema, theatre, a media library, exhibitions and music in the heart of Le Plessis-Robinson.",
+  "image": "maison-des-arts-plessis.jpg",
+  "alt_fr": "Façade de la Maison des Arts du Plessis-Robinson",
+  "alt_en": "Facade of the Maison des Arts in Le Plessis-Robinson",
+  "url": "https://maisondesarts.plessis-robinson.com/"
+}
   ],
   "sections": [
     {
