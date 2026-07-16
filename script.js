@@ -240,26 +240,57 @@ function renderServices() {
 }
 
 function renderLocalItems() {
-  const container = $("#localList");
-  if (!container) return;
+  const localList = document.getElementById("localList");
+  const items = state.data.localItems || [];
 
-  container.innerHTML = (state.data.localItems || []).map(item => {
-    const image = item.image || "";
+  if (!localList) return;
+
+  localList.innerHTML = items.map((item) => {
     const title = txt(item, "title");
     const text = txt(item, "text");
-    const link = item.link || "#local";
+    const alt = txt(item, "alt") || title;
+
+    const imageHtml = item.image
+      ? `
+        <div class="local-list-thumbnail">
+          <img
+            src="${item.image}"
+            alt="${alt}"
+            loading="lazy"
+          >
+        </div>
+      `
+      : `
+        <div class="local-list-thumbnail local-list-thumbnail-empty"></div>
+      `;
+
+    const cardContent = `
+      ${imageHtml}
+
+      <div class="local-list-content">
+        <h3>${title}</h3>
+        <p>${text}</p>
+      </div>
+    `;
+
+    if (item.url) {
+      return `
+        <a
+          class="local-list-item local-list-link"
+          href="${item.url}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="${title}"
+        >
+          ${cardContent}
+        </a>
+      `;
+    }
 
     return `
-      <a class="local-image-card" href="${escapeHtml(link)}">
-        <div class="local-card-image">
-          ${image ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(title)}">` : ""}
-        </div>
-
-        <div class="local-card-content">
-          <strong>${escapeHtml(title)}</strong>
-          <span>${escapeHtml(text)}</span>
-        </div>
-      </a>
+      <article class="local-list-item">
+        ${cardContent}
+      </article>
     `;
   }).join("");
 }
