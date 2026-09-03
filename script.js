@@ -5,7 +5,6 @@ const state = {
   data: null
 };
 
-
 const UI = {
   fr: {
     callReception: "Appeler la réception",
@@ -18,9 +17,9 @@ const UI = {
     noResult: "Aucun résultat pour cette recherche.",
     back: "Retour",
     discoverMore: "Découvrir",
-    needHelp: "Besoin d'aide ?"
+    needHelp: "Besoin d'aide ?",
+    barTitle: "Bar & boissons"
   },
-
   en: {
     callReception: "Call reception",
     seeServices: "View services",
@@ -32,22 +31,19 @@ const UI = {
     noResult: "No results for this search.",
     back: "Back",
     discoverMore: "Discover",
-    needHelp: "Need help?"
+    needHelp: "Need help?",
+    barTitle: "Bar & drinks"
   }
 };
 
+const $ = (selector, root = document) => root.querySelector(selector);
+const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
-const $ = (s, r = document) => r.querySelector(s);
-const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
-
-
-const ui = (key) => UI[state.lang][key] || key;
-
+const ui = (key) => UI[state.lang]?.[key] || key;
 
 const txt = (obj, key) => {
   return obj?.[`${key}_${state.lang}`] ?? obj?.[`${key}_fr`] ?? "";
 };
-
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -58,11 +54,13 @@ function escapeHtml(value) {
     .replace(/'/g, "&#039;");
 }
 
+function escapeAttribute(value) {
+  return escapeHtml(value);
+}
 
 function inlineFormat(value) {
   return escapeHtml(value).replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
 }
-
 
 function markdownToHtml(markdown) {
   const lines = String(markdown || "")
@@ -72,7 +70,6 @@ function markdownToHtml(markdown) {
   let html = "";
   let inList = false;
 
-
   function closeList() {
     if (inList) {
       html += "</ul>";
@@ -80,85 +77,59 @@ function markdownToHtml(markdown) {
     }
   }
 
-
   for (const raw of lines) {
     const line = raw.trim();
-
 
     if (!line) {
       closeList();
       continue;
     }
 
-
     if (line.startsWith("### ")) {
       closeList();
+      html += `<h3>${inlineFormat(line.slice(4))}</h3>`;
+      continue;
+    }
 
-      html += `
-        <h3>
-          ${inlineFormat(line.slice(4))}
-        </h3>
-      `;
-
-    } else if (line.startsWith("> ")) {
+    if (line.startsWith("> ")) {
       closeList();
+      html += `<div class="notice-box">${inlineFormat(line.slice(2))}</div>`;
+      continue;
+    }
 
-      html += `
-        <div class="notice-box">
-          ${inlineFormat(line.slice(2))}
-        </div>
-      `;
-
-    } else if (line.startsWith("- ")) {
-
+    if (line.startsWith("- ")) {
       if (!inList) {
         html += "<ul>";
         inList = true;
       }
 
-      html += `
-        <li>
-          ${inlineFormat(line.slice(2))}
-        </li>
-      `;
-
-    } else {
-
-      closeList();
-
-      html += `
-        <p>
-          ${inlineFormat(line)}
-        </p>
-      `;
+      html += `<li>${inlineFormat(line.slice(2))}</li>`;
+      continue;
     }
+
+    closeList();
+    html += `<p>${inlineFormat(line)}</p>`;
   }
 
-
   closeList();
-
   return html;
 }
 
 
 /* =========================================================
-   CHARGEMENT DU CONTENU
+   CHARGEMENT DES DONNÉES
    ========================================================= */
 
-
 async function loadContent() {
-
   const response = await fetch("./hotel.json", {
     cache: "no-store"
   });
-
 
   if (!response.ok) {
     throw new Error(
       `Impossible de charger hotel.json. Statut HTTP : ${response.status}`
     );
   }
-
 
   state.data = await response.json();
 }
@@ -168,29 +139,17 @@ async function loadContent() {
    CONTENU GÉNÉRAL
    ========================================================= */
 
-
 function applyBasics() {
-
   const data = state.data;
-  const hotel = data.hotel || {};
-
+  const hotel = data?.hotel || {};
 
   document.documentElement.lang = state.lang;
-
-
-  /* BOUTON LANGUE */
 
   const langBtn = $("#langBtn");
 
   if (langBtn) {
-    langBtn.textContent =
-      state.lang === "fr"
-        ? "EN"
-        : "FR";
+    langBtn.textContent = state.lang === "fr" ? "EN" : "FR";
   }
-
-
-  /* ANNÉE FOOTER */
 
   const year = $("#year");
 
@@ -198,84 +157,54 @@ function applyBasics() {
     year.textContent = new Date().getFullYear();
   }
 
-
-  /* NOM HÔTEL FOOTER */
-
   const footerHotelName = $("#footerHotelName");
 
   if (footerHotelName) {
     footerHotelName.textContent =
-      hotel.fullName ||
-      "Mercure Le Plessis-Robinson";
+      hotel.fullName || "Mercure Le Plessis-Robinson";
   }
 
-
-  /* TEXTES INTERFACE */
-
-  $$("[data-ui]").forEach(el => {
+  $$("[data-ui]").forEach((el) => {
     el.textContent = ui(el.dataset.ui);
   });
 
-
-  /* TÉLÉPHONE */
-
-  $$('[data-action="phone"]').forEach(el => {
-    el.href = `tel:${hotel.phone || ""}`;
+  $$("[data-ui-fr][data-ui-en]").forEach((el) => {
+    const key = state.lang === "fr" ? "uiFr" : "uiEn";
+    el.textContent = el.dataset[key] || el.textContent;
   });
 
-
-  /* EMAIL */
-
-  $$('[data-action="email"]').forEach(el => {
-    el.href = `mailto:${hotel.email || ""}`;
+  $$('[data-action="phone"]').forEach((el) => {
+    el.href = hotel.phone ? `tel:${hotel.phone}` : "#";
   });
 
+  $$('[data-action="email"]').forEach((el) => {
+    el.href = hotel.email ? `mailto:${hotel.email}` : "#";
+  });
 
-  /* MAPS */
-
-  $$('[data-action="maps"]').forEach(el => {
+  $$('[data-action="maps"]').forEach((el) => {
     el.href = hotel.mapsUrl || "#";
   });
-
-
-  /* PLACEHOLDER RECHERCHE */
 
   const search = $("#search");
 
   if (search) {
-
     search.placeholder =
       state.lang === "fr"
         ? "Petit-déjeuner, parking, Wi-Fi..."
         : "Breakfast, parking, Wi-Fi...";
   }
 
-
-  /* CONTENU TRADUIT */
-
-  $$("[data-content]").forEach(el => {
-
-    const [group, key] =
-      el.dataset.content.split(".");
-
-    el.textContent =
-      txt(data[group], key);
+  $$("[data-content]").forEach((el) => {
+    const [group, key] = el.dataset.content.split(".");
+    el.textContent = txt(data?.[group], key);
   });
-
-
-  /* IMAGE PRINCIPALE HÔTEL */
 
   const img = $("#hotelHeroImage");
   const frame = $("#hotelPhotoFrame");
-
-  const image =
-    hotel.heroImage || "";
-
+  const image = hotel.heroImage || "";
 
   if (img && frame) {
-
     if (image) {
-
       img.src = image;
 
       img.onload = () => {
@@ -285,106 +214,82 @@ function applyBasics() {
       img.onerror = () => {
         frame.classList.remove("has-image");
       };
-
     } else {
-
       img.removeAttribute("src");
-
       frame.classList.remove("has-image");
     }
   }
+
+  updateBarMenuLanguage();
 }
 
 
 /* =========================================================
-   LIENS RAPIDES ACCUEIL
+   LIENS RAPIDES
    ========================================================= */
 
-
 function renderHeroQuickLinks() {
-
   const container = $("#heroQuickLinks");
 
-  if (!container) return;
-
+  if (!container || !state.data) return;
 
   const preferred = [
     "wifi",
     "breakfast",
-    "parc-de-sceaux"
+    "discover-local"
   ];
 
-
   container.innerHTML = preferred
-    .map(id => {
-
-      const section =
-        state.data.sections.find(
-          s => s.id === id
-        );
-
+    .map((id) => {
+      const section = (state.data.sections || [])
+        .find((item) => item.id === id);
 
       if (!section) return "";
-
 
       return `
         <button
           type="button"
           class="mini-link"
-          data-service-id="${escapeHtml(section.id)}"
+          data-service-id="${escapeAttribute(section.id)}"
         >
           ${escapeHtml(txt(section, "title"))}
         </button>
       `;
-
     })
     .join("");
 }
 
 
 /* =========================================================
-   ONGLETS CATÉGORIES
+   CATÉGORIES
    ========================================================= */
 
-
 function renderTabs() {
-
   const container = $("#tabs");
 
-  if (!container) return;
-
+  if (!container || !state.data) return;
 
   const tabs = [
-
     {
       id: "all",
-      label_fr: ui("all"),
-      label_en: ui("all")
+      label_fr: UI.fr.all,
+      label_en: UI.en.all
     },
-
     ...(state.data.categories || [])
-
   ];
 
-
   container.innerHTML = tabs
-    .map(cat => `
-
-      <button
-        type="button"
-        class="tab ${
-          state.category === cat.id
-            ? "active"
-            : ""
-        }"
-        data-category="${escapeHtml(cat.id)}"
-      >
-
-        ${escapeHtml(txt(cat, "label"))}
-
-      </button>
-
-    `)
+    .map(
+      (cat) => `
+        <button
+          type="button"
+          class="tab ${state.category === cat.id ? "active" : ""}"
+          data-category="${escapeAttribute(cat.id)}"
+        >
+          ${escapeHtml(txt(cat, "label"))}
+        </button>
+      `
+    )
     .join("");
 }
 
@@ -393,413 +298,296 @@ function renderTabs() {
    RECHERCHE
    ========================================================= */
 
-
 function matches(section) {
-
-  const q =
-    state.query
-      .trim()
-      .toLowerCase();
-
+  const query = state.query
+    .trim()
+    .toLowerCase();
 
   const categoryOk =
     state.category === "all" ||
     section.category === state.category;
 
+  if (!categoryOk) return false;
 
-  if (!categoryOk) {
-    return false;
-  }
-
-
-  if (!q) {
-    return true;
-  }
-
+  if (!query) return true;
 
   const searchable = [
-
     txt(section, "title"),
-
     txt(section, "summary"),
-
-    section.tags,
-
+    section.tags || "",
     txt(section, "body")
-
   ]
     .join(" ")
     .toLowerCase();
 
-
-  return searchable.includes(q);
+  return searchable.includes(query);
 }
 
 
 /* =========================================================
-   CARTES SERVICES
+   SERVICES
    ========================================================= */
-
 
 function renderServices() {
-
   const container = $("#serviceGrid");
 
-  if (!container) return;
+  if (!container || !state.data) return;
 
+  const items = (state.data.sections || [])
+    .filter(matches);
 
-  const items =
-    (state.data.sections || [])
-      .filter(matches);
+  container.innerHTML = items.length
+    ? items
+        .map(
+          (section) => `
+            <a
+              class="service-card"
+              href="#"
+              data-service-id="${escapeAttribute(section.id)}"
+              aria-haspopup="dialog"
+            >
 
+              <div>
 
-  container.innerHTML =
-    items.length
+                <h3>
+                  ${escapeHtml(txt(section, "title"))}
+                </h3>
 
-      ? items.map(section => `
+                <p>
+                  ${escapeHtml(txt(section, "summary"))}
+                </p>
 
-        <a
-          class="service-card"
-          href="#"
-          data-service-id="${escapeHtml(section.id)}"
-          aria-haspopup="dialog"
-        >
+              </div>
 
-          <div>
+              <span class="open">
+                ${escapeHtml(ui("open"))} →
+              </span>
 
-            <h3>
-              ${escapeHtml(txt(section, "title"))}
-            </h3>
-
-            <p>
-              ${escapeHtml(txt(section, "summary"))}
-            </p>
-
-          </div>
-
-          <span class="open">
-            ${ui("open")} →
-          </span>
-
-        </a>
-
-      `).join("")
-
-      : `
-
-        <div class="empty">
-          ${ui("noResult")}
-        </div>
-
-      `;
+            </a>
+          `
+        )
+        .join("")
+    : `
+      <div class="empty">
+        ${escapeHtml(ui("noResult"))}
+      </div>
+    `;
 }
 
 
 /* =========================================================
-   ÉLÉMENTS LOCAUX
+   GUIDE LOCAL
    ========================================================= */
 
-
 function renderLocalItems() {
+  const localList = $("#localList");
 
-  const localList =
-    document.getElementById("localList");
+  if (!localList || !state.data) return;
 
+  const items = state.data.localItems || [];
 
-  const items =
-    state.data.localItems || [];
+  localList.innerHTML = items
+    .map((item) => {
 
+      const title = txt(item, "title");
+      const text = txt(item, "text");
+      const alt = txt(item, "alt") || title;
 
-  if (!localList) return;
+      const imageHtml = item.image
+        ? `
+          <div class="local-list-thumbnail">
 
+            <img
+              src="${escapeAttribute(item.image)}"
+              alt="${escapeAttribute(alt)}"
+              loading="lazy"
+            >
 
-  localList.innerHTML =
-    items.map(item => {
-
-      const title =
-        txt(item, "title");
-
-      const text =
-        txt(item, "text");
-
-      const alt =
-        txt(item, "alt") || title;
-
-
-      const imageHtml =
-        item.image
-          ? `
-
-            <div class="local-list-thumbnail">
-
-              <img
-                src="${item.image}"
-                alt="${alt}"
-                loading="lazy"
-              >
-
-            </div>
-
-          `
-          : `
-
-            <div
-              class="
-                local-list-thumbnail
-                local-list-thumbnail-empty
-              "
-            ></div>
-
-          `;
-
+          </div>
+        `
+        : `
+          <div
+            class="local-list-thumbnail local-list-thumbnail-empty"
+            aria-hidden="true"
+          ></div>
+        `;
 
       const cardContent = `
-
         ${imageHtml}
 
         <div class="local-list-content">
 
           <h3>
-            ${title}
+            ${escapeHtml(title)}
           </h3>
 
           <p>
-            ${text}
+            ${escapeHtml(text)}
           </p>
 
         </div>
-
       `;
 
-
       if (item.url) {
-
         return `
-
           <a
-            class="
-              local-list-item
-              local-list-link
-            "
-            href="${item.url}"
+            class="local-list-item local-list-link"
+            href="${escapeAttribute(item.url)}"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="${title}"
+            aria-label="${escapeAttribute(title)}"
           >
 
             ${cardContent}
 
           </a>
-
         `;
       }
 
-
       return `
-
         <article class="local-list-item">
 
           ${cardContent}
 
         </article>
-
       `;
-
     })
     .join("");
 }
 
 
 /* =========================================================
-   BOUTONS DES SERVICES
+   BOUTONS D'ACTION DES SERVICES
    ========================================================= */
 
-
 function actionButton(type) {
-
-  const hotel =
-    state.data.hotel || {};
-
-
-  /* APPELER RÉCEPTION */
+  const hotel = state.data?.hotel || {};
 
   if (type === "phone") {
-
     return `
-
       <a
         class="btn btn-primary"
-        href="tel:${escapeHtml(hotel.phone)}"
+        href="tel:${escapeAttribute(hotel.phone || "")}"
       >
-        ${ui("callReception")}
+        ${escapeHtml(ui("callReception"))}
       </a>
-
     `;
   }
-
-
-  /* EMAIL */
 
   if (type === "email") {
-
     return `
-
       <a
         class="btn btn-light"
-        href="mailto:${escapeHtml(hotel.email)}"
+        href="mailto:${escapeAttribute(hotel.email || "")}"
       >
-        ${ui("writeHotel")}
+        ${escapeHtml(ui("writeHotel"))}
       </a>
-
     `;
   }
 
-
-  /* GOOGLE MAPS */
-
   if (type === "maps") {
-
     return `
-
       <a
         class="btn btn-soft"
-        href="${escapeHtml(hotel.mapsUrl)}"
+        href="${escapeAttribute(hotel.mapsUrl || "#")}"
         target="_blank"
         rel="noopener noreferrer"
       >
-        ${ui("openMap")}
+        ${escapeHtml(ui("openMap"))}
       </a>
-
     `;
   }
-
-
-  /* CARTE DU BAR */
 
   if (type === "bar-menu") {
-
     return `
-
-      <a
+      <button
+        type="button"
         class="btn btn-primary"
-        href="carte-bar.html"
+        data-open-bar-menu
       >
-        ${ui("barMenu")}
-      </a>
-
+        ${escapeHtml(ui("barMenu"))}
+      </button>
     `;
   }
-
 
   return "";
 }
 
 
 /* =========================================================
-   NAVIGATION MOBILE
+   NAVIGATION
    ========================================================= */
 
-
 function setActiveNav(key) {
-
   $$(".mobile-nav a")
-    .forEach(a => {
+    .forEach((a) => {
       a.classList.remove("active");
     });
 
-
   const map =
-
     key === "contact"
       ? "contact"
-
       : key === "local"
         ? "local"
-
         : key === "services"
           ? "services"
-
           : "home";
 
+  if (map === "contact") {
+    $('.mobile-nav a[href="#contact"]')
+      ?.classList
+      .add("active");
 
-  document
-    .querySelector(
-      `.mobile-nav a[data-link="${map}"]`
-    )
+    return;
+  }
+
+  $(`.mobile-nav a[data-link="${map}"]`)
     ?.classList
     .add("active");
 }
 
 
-/* =========================================================
-   RETOUR À L'ACCUEIL / SECTION
-   ========================================================= */
-
-
 function showHome(anchor) {
-
-  const viewDetail =
-    $("#viewDetail");
-
-  const viewHome =
-    $("#viewHome");
-
+  const viewDetail = $("#viewDetail");
+  const viewHome = $("#viewHome");
 
   if (viewDetail) {
     viewDetail.classList.remove("active");
   }
 
-
   if (viewHome) {
     viewHome.classList.remove("hidden");
   }
 
-
   renderAll();
 
-
-  const target =
-    anchor
-      ? document.getElementById(anchor)
-      : document.getElementById("home");
-
+  const target = anchor
+    ? document.getElementById(anchor)
+    : document.getElementById("home");
 
   if (target) {
-
     setTimeout(() => {
-
       target.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
-
     }, 0);
   }
-
 
   setActiveNav(anchor || "home");
 }
 
 
-/* =========================================================
-   ROUTAGE
-   ========================================================= */
-
-
 function route() {
-
   const hash =
     location.hash.replace("#", "") ||
     "home";
 
-
   if (hash.startsWith("service/")) {
 
-    const id =
-      decodeURIComponent(
-        hash.split("/")[1] || ""
-      );
-
+    const id = decodeURIComponent(
+      hash.split("/")[1] || ""
+    );
 
     history.replaceState(
       null,
@@ -807,32 +595,20 @@ function route() {
       "#services"
     );
 
-
     openServiceModal(id);
 
     return;
   }
 
-
   showHome(hash);
 }
 
 
-/* =========================================================
-   RENDU GLOBAL
-   ========================================================= */
-
-
 function renderAll() {
-
   applyBasics();
-
   renderHeroQuickLinks();
-
   renderTabs();
-
   renderServices();
-
   renderLocalItems();
 }
 
@@ -841,345 +617,14 @@ function renderAll() {
    POP-UP SERVICES
    ========================================================= */
 
-
-function ensureServiceModalStyles() {
-
-  if (
-    document.querySelector(
-      "#serviceModalStyles"
-    )
-  ) {
-    return;
-  }
-
-
-  const style =
-    document.createElement("style");
-
-
-  style.id =
-    "serviceModalStyles";
-
-
-  style.textContent = `
-
-    body.modal-open {
-      overflow: hidden;
-    }
-
-
-    .service-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-
-      display: none;
-
-      align-items: center;
-      justify-content: center;
-
-      padding: 18px;
-    }
-
-
-    .service-modal.is-open {
-      display: flex;
-    }
-
-
-    .service-modal-backdrop {
-      position: absolute;
-      inset: 0;
-
-      background:
-        rgba(0, 0, 0, 0.55);
-
-      backdrop-filter:
-        blur(4px);
-    }
-
-
-    .service-modal-dialog {
-      position: relative;
-
-      width:
-        min(720px, 100%);
-
-      max-height:
-        86vh;
-
-      overflow:
-        auto;
-
-      background:
-        #fff;
-
-      border-radius:
-        26px;
-
-      padding:
-        28px;
-
-      box-shadow:
-        0 24px 80px
-        rgba(0, 0, 0, 0.28);
-
-      animation:
-        serviceModalIn
-        0.18s
-        ease-out;
-    }
-
-
-    .service-modal-close {
-      position:
-        absolute;
-
-      top:
-        14px;
-
-      right:
-        16px;
-
-      width:
-        38px;
-
-      height:
-        38px;
-
-      border:
-        0;
-
-      border-radius:
-        999px;
-
-      background:
-        #f2f2f2;
-
-      font-size:
-        28px;
-
-      line-height:
-        1;
-
-      cursor:
-        pointer;
-    }
-
-
-    .service-modal-head {
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      gap:
-        14px;
-
-      margin-bottom:
-        10px;
-
-      padding-right:
-        38px;
-    }
-
-
-    .service-modal-icon {
-      width:
-        54px;
-
-      height:
-        54px;
-
-      border-radius:
-        18px;
-
-      display:
-        grid;
-
-      place-items:
-        center;
-
-      background:
-        #eef5f1;
-
-      font-size:
-        28px;
-
-      flex:
-        0 0 auto;
-    }
-
-
-    .service-modal-title {
-      margin:
-        0;
-
-      font-size:
-        clamp(
-          1.45rem,
-          3vw,
-          2rem
-        );
-
-      line-height:
-        1.12;
-    }
-
-
-    .service-modal-summary {
-      margin:
-        8px 0 18px;
-
-      color:
-        #52625a;
-
-      font-size:
-        1.02rem;
-
-      line-height:
-        1.55;
-    }
-
-
-    .service-modal-content {
-      line-height:
-        1.62;
-    }
-
-
-    .service-modal-content h3 {
-      margin:
-        22px 0 8px;
-
-      font-size:
-        1.12rem;
-    }
-
-
-    .service-modal-content p {
-      margin:
-        0 0 12px;
-    }
-
-
-    .service-modal-content ul {
-      margin:
-        8px 0 16px;
-
-      padding-left:
-        22px;
-    }
-
-
-    .service-modal-content li {
-      margin:
-        7px 0;
-    }
-
-
-    .service-modal-actions {
-      display:
-        flex;
-
-      flex-wrap:
-        wrap;
-
-      gap:
-        10px;
-
-      margin-top:
-        22px;
-    }
-
-
-    @keyframes serviceModalIn {
-
-      from {
-        opacity:
-          0;
-
-        transform:
-          translateY(10px)
-          scale(0.98);
-      }
-
-      to {
-        opacity:
-          1;
-
-        transform:
-          translateY(0)
-          scale(1);
-      }
-    }
-
-
-    @media (max-width: 640px) {
-
-      .service-modal {
-        align-items:
-          flex-end;
-
-        padding:
-          0;
-      }
-
-
-      .service-modal-dialog {
-        width:
-          100%;
-
-        max-height:
-          88vh;
-
-        border-radius:
-          24px
-          24px
-          0
-          0;
-
-        padding:
-          24px
-          20px
-          26px;
-      }
-    }
-
-  `;
-
-
-  document.head
-    .appendChild(style);
-}
-
-
-/* =========================================================
-   CRÉATION POP-UP
-   ========================================================= */
-
-
 function ensureServiceModal() {
+  let modal = $("#serviceModal");
 
-  ensureServiceModalStyles();
-
-
-  let modal =
-    document.querySelector(
-      "#serviceModal"
-    );
-
-
-  if (modal) {
-    return modal;
-  }
-
+  if (modal) return modal;
 
   document.body.insertAdjacentHTML(
     "beforeend",
     `
-
       <div
         class="service-modal"
         id="serviceModal"
@@ -1190,7 +635,6 @@ function ensureServiceModal() {
           class="service-modal-backdrop"
           data-modal-close
         ></div>
-
 
         <article
           class="service-modal-dialog"
@@ -1208,14 +652,12 @@ function ensureServiceModal() {
             ×
           </button>
 
-
           <div class="service-modal-head">
 
             <div
               class="service-modal-icon"
               id="serviceModalIcon"
             ></div>
-
 
             <h2
               class="service-modal-title"
@@ -1224,18 +666,15 @@ function ensureServiceModal() {
 
           </div>
 
-
           <p
             class="service-modal-summary"
             id="serviceModalSummary"
           ></p>
 
-
           <div
             class="service-modal-content"
             id="serviceModalContent"
           ></div>
-
 
           <div
             class="service-modal-actions"
@@ -1245,22 +684,14 @@ function ensureServiceModal() {
         </article>
 
       </div>
-
     `
   );
 
-
-  modal =
-    document.querySelector(
-      "#serviceModal"
-    );
-
+  modal = $("#serviceModal");
 
   modal
-    .querySelectorAll(
-      "[data-modal-close]"
-    )
-    .forEach(button => {
+    ?.querySelectorAll("[data-modal-close]")
+    .forEach((button) => {
 
       button.addEventListener(
         "click",
@@ -1269,149 +700,210 @@ function ensureServiceModal() {
 
     });
 
-
   return modal;
 }
 
 
-/* =========================================================
-   OUVERTURE POP-UP
-   ========================================================= */
-
-
 function openServiceModal(id) {
-
-  if (
-    !state.data ||
-    !state.data.sections
-  ) {
-    return;
-  }
-
+  if (!state.data?.sections) return;
 
   const section =
     state.data.sections.find(
-      item => item.id === id
+      (item) => item.id === id
     );
 
+  if (!section) return;
 
-  if (!section) {
-    return;
+  const modal = ensureServiceModal();
+
+  if (!modal) return;
+
+  const icon =
+    $("#serviceModalIcon", modal);
+
+  const title =
+    $("#serviceModalTitle", modal);
+
+  const summary =
+    $("#serviceModalSummary", modal);
+
+  const content =
+    $("#serviceModalContent", modal);
+
+  const actions =
+    $("#serviceModalActions", modal);
+
+  if (icon) {
+    icon.textContent =
+      section.icon || "";
   }
 
-
-  const modal =
-    ensureServiceModal();
-
-
-  modal
-    .querySelector(
-      "#serviceModalIcon"
-    )
-    .textContent =
-      section.icon || "";
-
-
-  modal
-    .querySelector(
-      "#serviceModalTitle"
-    )
-    .textContent =
+  if (title) {
+    title.textContent =
       txt(section, "title");
+  }
 
-
-  modal
-    .querySelector(
-      "#serviceModalSummary"
-    )
-    .textContent =
+  if (summary) {
+    summary.textContent =
       txt(section, "summary");
+  }
 
-
-  modal
-    .querySelector(
-      "#serviceModalContent"
-    )
-    .innerHTML =
+  if (content) {
+    content.innerHTML =
       markdownToHtml(
         txt(section, "body")
       );
+  }
 
-
-  modal
-    .querySelector(
-      "#serviceModalActions"
-    )
-    .innerHTML =
+  if (actions) {
+    actions.innerHTML =
       (section.actions || [])
         .map(actionButton)
         .join("");
+  }
 
-
-  modal
-    .classList
-    .add("is-open");
-
+  modal.classList.add("is-open");
 
   modal.setAttribute(
     "aria-hidden",
     "false"
   );
 
-
-  document.body
-    .classList
-    .add("modal-open");
-
+  document.body.classList.add(
+    "modal-open"
+  );
 
   const closeButton =
-    modal.querySelector(
-      ".service-modal-close"
-    );
+    $(".service-modal-close", modal);
 
-
-  if (closeButton) {
-
-    closeButton.focus({
-      preventScroll: true
-    });
-
-  }
+  closeButton?.focus({
+    preventScroll: true
+  });
 }
 
 
-/* =========================================================
-   FERMETURE POP-UP
-   ========================================================= */
-
-
 function closeServiceModal() {
-
   const modal =
-    document.querySelector(
-      "#serviceModal"
-    );
+    $("#serviceModal");
 
+  if (!modal) return;
 
-  if (!modal) {
-    return;
-  }
-
-
-  modal
-    .classList
-    .remove("is-open");
-
+  modal.classList.remove(
+    "is-open"
+  );
 
   modal.setAttribute(
     "aria-hidden",
     "true"
   );
 
+  if (
+    !$("#barMenuModal")
+      ?.classList
+      .contains("is-open")
+  ) {
+    document.body
+      .classList
+      .remove("modal-open");
+  }
+}
 
-  document.body
-    .classList
-    .remove("modal-open");
+
+/* =========================================================
+   CARTE DU BAR
+   ========================================================= */
+
+function updateBarMenuLanguage() {
+  const modal =
+    $("#barMenuModal");
+
+  if (!modal) return;
+
+  const title =
+    $(".bar-menu-top h2", modal);
+
+  if (title) {
+    title.textContent =
+      ui("barTitle");
+  }
+
+  const closeButton =
+    $(".bar-menu-close", modal);
+
+  if (closeButton) {
+    closeButton.setAttribute(
+      "aria-label",
+      state.lang === "fr"
+        ? "Fermer la carte du bar"
+        : "Close bar menu"
+    );
+  }
+}
+
+
+function openBarMenu() {
+  const modal =
+    $("#barMenuModal");
+
+  if (!modal) {
+
+    console.error(
+      "La fenêtre #barMenuModal est absente du fichier index.html."
+    );
+
+    return;
+  }
+
+  closeServiceModal();
+
+  updateBarMenuLanguage();
+
+  modal.classList.add(
+    "is-open"
+  );
+
+  modal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.classList.add(
+    "modal-open"
+  );
+
+  const closeButton =
+    $(".bar-menu-close", modal);
+
+  closeButton?.focus({
+    preventScroll: true
+  });
+}
+
+
+function closeBarMenu() {
+  const modal =
+    $("#barMenuModal");
+
+  if (!modal) return;
+
+  modal.classList.remove(
+    "is-open"
+  );
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  if (
+    !$("#serviceModal")
+      ?.classList
+      .contains("is-open")
+  ) {
+    document.body
+      .classList
+      .remove("modal-open");
+  }
 }
 
 
@@ -1419,25 +911,60 @@ function closeServiceModal() {
    ÉVÉNEMENTS
    ========================================================= */
 
-
 document.addEventListener(
   "click",
   function (event) {
 
 
-    /* ONGLETS */
+    /* OUVRIR CARTE DU BAR */
+
+    const openBarButton =
+      event.target.closest(
+        "[data-open-bar-menu]"
+      );
+
+    if (openBarButton) {
+
+      event.preventDefault();
+
+      event.stopPropagation();
+
+      openBarMenu();
+
+      return;
+    }
+
+
+    /* FERMER CARTE DU BAR */
+
+    const closeBarButton =
+      event.target.closest(
+        "[data-bar-menu-close]"
+      );
+
+    if (closeBarButton) {
+
+      event.preventDefault();
+
+      event.stopPropagation();
+
+      closeBarMenu();
+
+      return;
+    }
+
+
+    /* CATÉGORIES */
 
     const tab =
       event.target.closest(
         "[data-category]"
       );
 
-
     if (tab) {
 
       state.category =
         tab.dataset.category;
-
 
       renderTabs();
 
@@ -1454,13 +981,11 @@ document.addEventListener(
         "[data-service-id]"
       );
 
-
     if (trigger) {
 
       event.preventDefault();
 
       event.stopPropagation();
-
 
       openServiceModal(
         trigger.dataset.serviceId
@@ -1472,21 +997,37 @@ document.addEventListener(
 );
 
 
-/* TOUCHE ÉCHAP */
+/* =========================================================
+   TOUCHE ÉCHAP
+   ========================================================= */
 
 document.addEventListener(
   "keydown",
   function (event) {
 
-    if (event.key === "Escape") {
-      closeServiceModal();
+    if (event.key !== "Escape") {
+      return;
     }
 
+    if (
+      $("#barMenuModal")
+        ?.classList
+        .contains("is-open")
+    ) {
+
+      closeBarMenu();
+
+      return;
+    }
+
+    closeServiceModal();
   }
 );
 
 
-/* CHANGEMENT D'URL */
+/* =========================================================
+   CHANGEMENT URL
+   ========================================================= */
 
 window.addEventListener(
   "hashchange",
@@ -1498,15 +1039,12 @@ window.addEventListener(
    DÉMARRAGE
    ========================================================= */
 
-
 document.addEventListener(
   "DOMContentLoaded",
   () => {
 
-
     const search =
       $("#search");
-
 
     const langBtn =
       $("#langBtn");
@@ -1518,7 +1056,7 @@ document.addEventListener(
 
       search.addEventListener(
         "input",
-        event => {
+        (event) => {
 
           state.query =
             event.target.value;
@@ -1543,21 +1081,26 @@ document.addEventListener(
               ? "en"
               : "fr";
 
-
           localStorage.setItem(
             "directoryLang",
             state.lang
           );
 
-
           renderAll();
 
+          if (
+            $("#serviceModal")
+              ?.classList
+              .contains("is-open")
+          ) {
+            closeServiceModal();
+          }
         }
       );
     }
 
 
-    /* CHARGEMENT HOTEL.JSON */
+    /* CHARGEMENT DU JSON */
 
     loadContent()
 
@@ -1569,10 +1112,9 @@ document.addEventListener(
 
       })
 
-      .catch(error => {
+      .catch((error) => {
 
         console.error(error);
-
 
         document.body.innerHTML = `
 
@@ -1606,8 +1148,6 @@ document.addEventListener(
           </div>
 
         `;
-
       });
-
   }
 );
