@@ -135,7 +135,7 @@
     {
       "id": "room-service",
       "category": "food",
-      "actions": ["phone"],
+     "actions": ["bar-menu"],
       "title_fr": "Room service",
       "title_en": "Room service",
       "summary_fr": "Commande en chambre selon les disponibilités de service.",
