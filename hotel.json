@@ -48,6 +48,11 @@
       "label_en": "Hotel"
     },
     {
+      "id": "tariffs",
+      "label_fr": "Tarifs",
+      "label_en": "Rates"
+    },
+    {
       "id": "local",
       "label_fr": "Local & nature",
       "label_en": "Local & nature"
@@ -91,6 +96,20 @@
     }
   ],
   "sections": [
+    {
+      "id": "hotel-rates",
+      "category": "tariffs",
+      "actions": [
+        "phone"
+      ],
+      "title_fr": "Tarifs de l’hôtel",
+      "title_en": "Hotel rates",
+      "summary_fr": "Catégories de chambres, services et prestations selon disponibilités.",
+      "summary_en": "Room categories, services and amenities subject to availability.",
+      "tags": "tarifs prix chambres double twin privilege triple petit déjeuner taxe séjour parking blanchisserie",
+      "body_fr": "Les tarifs sont indiqués par nuit et selon disponibilités. Pour toute précision, contactez la réception.\n\n### Chambres double\n- 120 € à 500 € / nuit\n- Chambres : 11, 12, 14, 15, 101, 103, 104, 105, 106, 107, 115, 117, 118, 201, 203, 204, 205, 206, 207, 215, 217, 218, 301, 303, 304, 305, 307, 315, 317, 318, 405, 407, 408, 409, 410, 411, 412, 415, 505, 507, 512, 515\n\n### Chambres twin\n- 120 € à 500 € / nuit\n- Chambres : 102, 108, 109, 110, 111, 112, 116, 119, 202, 208, 209, 210, 211, 212, 216, 219, 302, 308, 309, 310, 311, 312, 316, 319\n\n### Chambres Privilège\n- 120 € à 700 € / nuit\n- Chambres : 306, 406, 506, 508, 509, 510, 511\n\n### Chambres triple\n- 120 € à 600 € / nuit\n- Chambres : 114, 214\n\n### Chambres Privilège triple\n- 120 € à 800 € / nuit\n- Chambres : 314, 414, 514\n\n### Services & prestations\n- Petit déjeuner buffet : 18 € / personne\n- Petit déjeuner en chambre : 18 € / personne\n- Taxe de séjour : 8,13 € / personne\n- Téléphone (l’impulsion) : 0,23 €\n- Parking privatif (selon disponibilités) : 8 € / nuit\n- Blanchisserie : tarif disponible auprès de la réception",
+      "body_en": "Rates are per night and subject to availability. Please contact reception for further details.\n\n### Double rooms\n- €120 to €500 / night\n- Rooms: 11, 12, 14, 15, 101, 103, 104, 105, 106, 107, 115, 117, 118, 201, 203, 204, 205, 206, 207, 215, 217, 218, 301, 303, 304, 305, 307, 315, 317, 318, 405, 407, 408, 409, 410, 411, 412, 415, 505, 507, 512, 515\n\n### Twin rooms\n- €120 to €500 / night\n- Rooms: 102, 108, 109, 110, 111, 112, 116, 119, 202, 208, 209, 210, 211, 212, 216, 219, 302, 308, 309, 310, 311, 312, 316, 319\n\n### Privilege rooms\n- €120 to €700 / night\n- Rooms: 306, 406, 506, 508, 509, 510, 511\n\n### Triple rooms\n- €120 to €600 / night\n- Rooms: 114, 214\n\n### Privilege triple rooms\n- €120 to €800 / night\n- Rooms: 314, 414, 514\n\n### Services & amenities\n- Breakfast buffet: €18 / person\n- Breakfast in room: €18 / person\n- City tax: €8.13 / person\n- Phone (impulse): €0.23\n- Private car park (subject to availability): €8 / night\n- Laundry: rate available from reception"
+    },
     {
       "id": "wifi",
       "category": "essentials",
@@ -156,8 +175,8 @@
       "summary_fr": "Accès, modalités et informations de stationnement.",
       "summary_en": "Access, conditions and parking information.",
       "tags": "parking voiture stationnement borne électrique accès",
-      "body_fr": "Un parking est disponible pour les clients de l'hôtel.\n\n### Informations pratiques\n- Accès :avenue de la libération\n- Tarif : 5€\n- Bornes électriques : disponible sur le parking devant l'hôtel\n\nN'hésitez pas à contacter la réception pour toute précision.",
-      "body_en": "Parking is available for hotel guests.\n\n### Practical information\n- Access: Avenue de la Libération\n- Price: €5\n- Electric charging stations: available in the parking area in front of the hotel\n\nPlease contact reception if you need any further information."
+      "body_fr": "Un parking privatif est disponible pour les clients de l'hôtel, selon disponibilités.\n\n### Informations pratiques\n- Accès : avenue de la Libération\n- Tarif : 8 € / nuit\n- Bornes électriques : disponibles sur le parking devant l'hôtel\n\nN'hésitez pas à contacter la réception pour toute précision.",
+      "body_en": "Private parking is available for hotel guests, subject to availability.\n\n### Practical information\n- Access: Avenue de la Libération\n- Price: €8 / night\n- Electric charging stations: available in the parking area in front of the hotel\n\nPlease contact reception if you need any further information."
     },
     {
       "id": "discover-local",
