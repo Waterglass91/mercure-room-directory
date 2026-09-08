@@ -15,6 +15,10 @@ const UI = {
     all: "Tout",
     open: "Ouvrir",
     noResult: "Aucun résultat pour cette recherche.",
+    rateCategory: "Catégorie",
+    ratePrice: "Tarif",
+    rateRooms: "Chambres",
+    rateServices: "Services & prestations",
     back: "Retour",
     discoverMore: "Découvrir",
     needHelp: "Besoin d'aide ?",
@@ -29,6 +33,10 @@ const UI = {
     all: "All",
     open: "Open",
     noResult: "No results for this search.",
+    rateCategory: "Category",
+    ratePrice: "Rate",
+    rateRooms: "Rooms",
+    rateServices: "Services & amenities",
     back: "Back",
     discoverMore: "Discover",
     needHelp: "Need help?",
@@ -113,6 +121,59 @@ function markdownToHtml(markdown) {
 
   closeList();
   return html;
+}
+
+function renderRatesTable(section) {
+  const roomRows = (section.roomRates || [])
+    .map(
+      (room) => `
+        <tr>
+          <th scope="row" data-label="${escapeAttribute(ui("rateCategory"))}">
+            ${escapeHtml(txt(room, "name"))}
+          </th>
+          <td class="rate-price" data-label="${escapeAttribute(ui("ratePrice"))}">
+            ${escapeHtml(room.rate)}
+          </td>
+          <td class="rate-rooms" data-label="${escapeAttribute(ui("rateRooms"))}">
+            ${escapeHtml(room.rooms)}
+          </td>
+        </tr>
+      `
+    )
+    .join("");
+
+  const serviceRows = (section.serviceRates || [])
+    .map(
+      (service) => `
+        <tr>
+          <th scope="row">${escapeHtml(txt(service, "name"))}</th>
+          <td class="rate-price">${escapeHtml(txt(service, "rate") || service.rate)}</td>
+        </tr>
+      `
+    )
+    .join("");
+
+  return `
+    <p class="rate-intro">${escapeHtml(txt(section, "intro"))}</p>
+    <div class="rate-table-wrap">
+      <table class="rate-table">
+        <thead>
+          <tr>
+            <th scope="col">${escapeHtml(ui("rateCategory"))}</th>
+            <th scope="col">${escapeHtml(ui("ratePrice"))}</th>
+            <th scope="col">${escapeHtml(ui("rateRooms"))}</th>
+          </tr>
+        </thead>
+        <tbody>${roomRows}</tbody>
+      </table>
+    </div>
+    <section class="rate-services" aria-label="${escapeAttribute(ui("rateServices"))}">
+      <h3>${escapeHtml(ui("rateServices"))}</h3>
+      <table class="rate-table rate-service-table">
+        <tbody>${serviceRows}</tbody>
+      </table>
+    </section>
+  `;
 }
 
 
@@ -750,9 +811,11 @@ function openServiceModal(id) {
 
   if (content) {
     content.innerHTML =
-      markdownToHtml(
-        txt(section, "body")
-      );
+      section.id === "hotel-rates"
+        ? renderRatesTable(section)
+        : markdownToHtml(
+            txt(section, "body")
+          );
   }
 
   if (actions) {

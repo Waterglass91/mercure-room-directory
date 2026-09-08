@@ -1249,6 +1249,154 @@ h1 {
   margin: 8px 0;
 }
 
+.rate-intro {
+  margin: 0 0 20px !important;
+  color: var(--text-soft);
+}
+
+.rate-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--cream);
+}
+
+.rate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.rate-table th,
+.rate-table td {
+  padding: 15px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.rate-table thead th {
+  color: var(--cream);
+  background: var(--sage-900);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rate-table tbody tr:last-child th,
+.rate-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.rate-table tbody tr:nth-child(even) {
+  background: var(--sage-100);
+}
+
+.rate-table tbody th {
+  width: 27%;
+  color: var(--sage-900);
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.rate-table .rate-price {
+  width: 24%;
+  color: var(--wood-900);
+  font-size: 1.08rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.rate-table .rate-rooms {
+  color: var(--text-soft);
+  font-size: 0.94rem;
+}
+
+.rate-services {
+  margin-top: 26px;
+}
+
+.rate-services h3 {
+  margin-bottom: 12px;
+}
+
+.rate-service-table {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--cream);
+}
+
+.rate-service-table tbody th {
+  width: auto;
+}
+
+.rate-service-table .rate-price {
+  width: 42%;
+  text-align: right;
+}
+
+@media (max-width: 620px) {
+  .rate-table-wrap {
+    overflow: visible;
+  }
+
+  .rate-table,
+  .rate-table tbody,
+  .rate-table tr,
+  .rate-table th,
+  .rate-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .rate-table thead {
+    display: none;
+  }
+
+  .rate-table tbody tr {
+    padding: 15px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .rate-table tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .rate-table th,
+  .rate-table td {
+    padding: 0;
+    border: 0;
+  }
+
+  .rate-table td {
+    margin-top: 8px;
+  }
+
+  .rate-table [data-label]::before {
+    content: attr(data-label) " · ";
+    color: var(--text-soft);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .rate-table tbody th {
+    font-size: 1.15rem;
+  }
+
+  .rate-table .rate-price {
+    white-space: normal;
+  }
+
+  .rate-service-table .rate-price {
+    text-align: left;
+  }
+}
+
 .service-modal-actions {
   display: flex;
   flex-wrap: wrap;
