@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Préparez votre demande de séminaire au Plessis-Robinson en quelques étapes." />
+  <title>Votre séminaire | Le Plessis-Robinson Hôtels</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Accueil séminaires">
+        <span class="brand-mark">PR</span>
+        <span>
+          <strong>Le Plessis-Robinson Hôtels</strong>
+          <small>Séminaires & événements</small>
+        </span>
+      </a>
+      <div class="header-meta">Demande en quelques minutes</div>
+    </header>
+
+    <main class="main-card" id="app" aria-live="polite">
+      <div class="progress-wrap" id="progressWrap" hidden>
+        <div class="progress-head">
+          <span id="progressLabel">Étape 1</span>
+          <span id="progressPercent">0 %</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+
+      <section id="content"></section>
+
+      <div class="navigation" id="navigation" hidden>
+        <button class="btn btn-ghost" id="backBtn" type="button">Retour</button>
+        <button class="btn btn-primary" id="nextBtn" type="button">Continuer</button>
+      </div>
+    </main>
+
+    <footer>
+      <span>Votre demande est étudiée par notre service commercial avant toute confirmation.</span>
+    </footer>
+  </div>
+
+  <form name="seminaire" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="seminaire" />
+    <input name="bot-field" />
+    <input name="societe" />
+    <input name="contact" />
+    <input name="email" />
+    <input name="telephone" />
+    <input name="type_evenement" />
+    <input name="configuration" />
+    <input name="participants" />
+    <input name="date" />
+    <input name="horaires" />
+    <textarea name="recapitulatif"></textarea>
+  </form>
+
+  <script src="app.js"></script>
+</body>
+</html>
