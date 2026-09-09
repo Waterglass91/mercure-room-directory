@@ -1,0 +1,8 @@
+name = "mercure-seminaire-mailer"
+main = "worker.js"
+compatibility_date = "2026-09-09"
+
+[vars]
+ALLOWED_ORIGINS = "https://guide.mercureleplessisrobinson.fr,https://waterglass91.github.io"
+MAIL_TO = "HC5M7@accor.com"
+MAIL_FROM = "Séminaires Mercure <seminaires@mail.mercureleplessisrobinson.fr>"
