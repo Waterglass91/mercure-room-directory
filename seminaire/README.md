@@ -4,15 +4,17 @@ Page dédiée aux demandes de séminaire du Mercure Le Plessis-Robinson.
 
 ## Publication
 
-Le dossier est prévu pour être servi par le GitHub Pages déjà associé au dépôt.
+Le dossier est servi par le GitHub Pages déjà associé au dépôt.
 
-URL attendue : `https://guide.mercureleplessisrobinson.fr/seminaire/`
+URL : `https://guide.mercureleplessisrobinson.fr/seminaire/`
 
 ## Fichiers
 
 - `index.html` : structure de la page
 - `styles.css` : design
-- `app.js` : parcours, règles de capacité et envoi du récapitulatif
+- `app.js` : parcours et règles métier
+- `config.js` : URL du backend d'envoi
+- `transport.js` : bascule de l'envoi vers le backend sécurisé
 
 ## Règles intégrées
 
@@ -21,8 +23,14 @@ URL attendue : `https://guide.mercureleplessisrobinson.fr/seminaire/`
 - Théâtre : maximum 50 personnes
 - En U / classe / îlots / autre : maximum 50 personnes, sous réserve de validation commerciale
 - Horaires : de 09h00 à 23h00
-- Envoi du récapitulatif : `HC5M7@accor.com`
+- Destinataire : `HC5M7@accor.com`
 
-## Premier envoi
+## Envoi des demandes
 
-L'envoi utilise FormSubmit. Lors du premier test, un e-mail d'activation peut être adressé à `HC5M7@accor.com`. Il faut valider cet e-mail avant que les demandes suivantes soient transmises automatiquement.
+L'architecture cible utilise un Cloudflare Worker et Resend afin que la clé d'envoi reste côté serveur et ne soit jamais exposée dans le navigateur.
+
+Le backend est présent dans :
+
+`backend/seminaire-mailer/`
+
+Tant que `window.SEMINAR_API_ENDPOINT` reste vide dans `config.js`, le formulaire conserve temporairement l'ancien transport FormSubmit. Dès que l'URL du Worker est renseignée, le nouveau backend est utilisé automatiquement.
