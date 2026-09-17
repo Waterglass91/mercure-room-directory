@@ -580,18 +580,17 @@ function actionButton(type, section = {}) {
     `;
   }
 
-  
-    if (type === "pressreader") {
-    return       `
-        <a
-          class="btn btn-primary"
-          href="https://www.pressreader.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ${escapeHtml(ui("openPressReader"))}
-        </a>
-      `;
+  if (type === "pressreader") {
+    return `
+      <a
+        class="btn btn-primary"
+        href="${escapeAttribute(section.pressreaderUrl || "https://www.pressreader.com/")}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ${escapeHtml(ui("openPressReader"))}
+      </a>
+    `;
   }
 
 return "";
@@ -839,19 +838,6 @@ function openServiceModal(id) {
         : markdownToHtml(
             txt(section, "body")
           );
-  }
-
-  if (type === "pressreader") {
-    return `
-      <a
-        class="btn btn-primary"
-        href="${escapeAttribute(section.pressreaderUrl || "https://www.pressreader.com/")}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        ${escapeHtml(ui("openPressReader"))}
-      </a>
-    `;
   }
 
   if (actions) {
