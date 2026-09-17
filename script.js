@@ -12,12 +12,14 @@ const UI = {
     writeHotel: "Écrire à l'hôtel",
     openMap: "Ouvrir la carte",
     barMenu: "Voir la carte du bar",
+        openPressReader: "Ouvrir PressReader",
     all: "Tout",
     open: "Ouvrir",
     noResult: "Aucun résultat pour cette recherche.",
     rateCategory: "Catégorie",
     ratePrice: "Tarif",
     rateRooms: "Chambres",
+    
     rateServices: "Services & prestations",
     back: "Retour",
     discoverMore: "Découvrir",
@@ -30,6 +32,7 @@ const UI = {
     writeHotel: "Email the hotel",
     openMap: "Open map",
     barMenu: "View bar menu",
+        openPressReader: "Open PressReader",
     all: "All",
     open: "Open",
     noResult: "No results for this search.",
@@ -571,7 +574,21 @@ function actionButton(type) {
     `;
   }
 
-  return "";
+  
+    if (type === "pressreader") {
+    return       `
+        <a
+          class="btn btn-primary"
+          href="https://www.pressreader.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ${escapeHtml(ui("openPressReader"))}
+        </a>
+      `;
+  }
+
+return "";
 }
 
 
