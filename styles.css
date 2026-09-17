@@ -704,6 +704,44 @@ h1 {
   box-shadow: 0 22px 48px rgba(47, 61, 53, 0.13);
 }
 
+.service-card--featured {
+  position: relative;
+  overflow: hidden;
+
+  border-color: rgba(83, 103, 91, 0.38);
+  background:
+    radial-gradient(circle at 92% 0%, rgba(184, 195, 174, 0.66), transparent 10rem),
+    linear-gradient(145deg, #fffdf7 0%, #eef2e9 100%);
+}
+
+.service-card--featured::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 78px;
+  height: 5px;
+  border-radius: 0 28px 0 999px;
+  background: var(--sage-700);
+}
+
+.service-card-badge {
+  display: inline-flex;
+  margin: 0 0 11px;
+  padding: 5px 10px 4px;
+
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+
+  border-radius: 999px;
+  background: var(--sage-800);
+}
+
 .service-card h3 {
   margin: 0 0 12px;
 

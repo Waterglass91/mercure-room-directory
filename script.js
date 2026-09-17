@@ -12,7 +12,7 @@ const UI = {
     writeHotel: "Écrire à l'hôtel",
     openMap: "Ouvrir la carte",
     barMenu: "Voir la carte du bar",
-        openPressReader: "Ouvrir PressReader",
+    openPressReader: "Ouvrir PressReader",
     all: "Tout",
     open: "Ouvrir",
     noResult: "Aucun résultat pour cette recherche.",
@@ -32,7 +32,7 @@ const UI = {
     writeHotel: "Email the hotel",
     openMap: "Open map",
     barMenu: "View bar menu",
-        openPressReader: "Open PressReader",
+    openPressReader: "Open PressReader",
     all: "All",
     open: "Open",
     noResult: "No results for this search.",
@@ -405,13 +405,19 @@ function renderServices() {
         .map(
           (section) => `
             <a
-              class="service-card"
+              class="service-card${section.featured ? " service-card--featured" : ""}"
               href="#"
               data-service-id="${escapeAttribute(section.id)}"
               aria-haspopup="dialog"
             >
 
               <div>
+
+                ${section.featured ? `
+                  <span class="service-card-badge">
+                    ${state.lang === "fr" ? "Nouveau" : "New"}
+                  </span>
+                ` : ""}
 
                 <h3>
                   ${escapeHtml(txt(section, "title"))}
@@ -524,7 +530,7 @@ function renderLocalItems() {
    BOUTONS D'ACTION DES SERVICES
    ========================================================= */
 
-function actionButton(type) {
+function actionButton(type, section = {}) {
   const hotel = state.data?.hotel || {};
 
   if (type === "phone") {
@@ -835,10 +841,23 @@ function openServiceModal(id) {
           );
   }
 
+  if (type === "pressreader") {
+    return `
+      <a
+        class="btn btn-primary"
+        href="${escapeAttribute(section.pressreaderUrl || "https://www.pressreader.com/")}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ${escapeHtml(ui("openPressReader"))}
+      </a>
+    `;
+  }
+
   if (actions) {
     actions.innerHTML =
       (section.actions || [])
-        .map(actionButton)
+        .map((action) => actionButton(action, section))
         .join("");
   }
 
